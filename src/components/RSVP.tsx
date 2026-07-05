@@ -278,12 +278,9 @@ if (state.kind === "qr") {
   عدد الأشخاص
 </label>
 
-<input
-  type="number"
-  min="1"
+<select
   value={guestCount}
   onChange={(e) => setGuestCount(e.target.value)}
-  placeholder="عدد الأشخاص"
   className="w-full px-4 py-3 rounded-xl font-arabic text-right outline-none transition-colors"
   style={{
     background: "hsla(40, 50%, 98%, 0.8)",
@@ -291,8 +288,14 @@ if (state.kind === "qr") {
     color: "hsl(30 35% 22%)",
   }}
   dir="rtl"
-/>
-
+>
+  <option value="">اختر عدد الأشخاص</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
         <div className="grid grid-cols-2 gap-3 mt-5">
           <button
             onClick={() => setChoice("attending")}
