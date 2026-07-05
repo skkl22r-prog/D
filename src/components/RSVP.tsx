@@ -278,7 +278,7 @@ if (state.kind === "qr") {
 </label>
 
 <div className="flex flex-row-reverse gap-2">
-  {["1", "2", "3", "4", "5"].map((num) => (
+  {["5", "4", "3", "2", "1"].map((num) => (
     <button
       key={num}
       type="button"
