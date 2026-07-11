@@ -55,11 +55,11 @@ className="hidden"
     <div
       className="mx-auto max-w-sm rounded-2xl p-6 text-center backdrop-blur-md"
       style={{
-background: "#EEE7DC"
-border: "1.5px solid #A86A46"
-        boxShadow: "var(--shadow-soft)",
-        color: "#C8C3BD",
-      }}
+  background: "#EEE7DC",
+  border: "1.5px solid #A86A46",
+  boxShadow: "var(--shadow-soft)",
+  color: "#C8C3BD",
+}}
     >
       <div
         className="flex justify-between items-center font-display text-sm mb-3 px-2 py-2 rounded-lg"
