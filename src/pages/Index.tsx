@@ -56,7 +56,7 @@ className="hidden"
       className="mx-auto max-w-sm rounded-2xl p-6 text-center backdrop-blur-md"
       style={{
         background: "#F8F6F2",
-        border: "1.5px solid hsl(42 75% 55% / 0.5)",
+border: "1.5px solid #902B0E",
         boxShadow: "var(--shadow-soft)",
         color: "#C8C3BD",
       }}
@@ -65,8 +65,8 @@ className="hidden"
         className="flex justify-between items-center font-display text-sm mb-3 px-2 py-2 rounded-lg"
         dir="ltr"
         style={{
-          background: "linear-gradient(135deg, #C8C3BD, #B89B5E)",
-          color: "#2B2B2B",
+          background: "linear-gradient(135deg, #902B0E 0%, #4C4C26 100%)",
+color: "#F8F6F2",
           fontWeight: 600,
         }}
       >
@@ -75,7 +75,11 @@ className="hidden"
         <span>2026</span>
       </div>
 
-      <div className="grid grid-cols-7 gap-1 text-[10px] font-display text-muted-foreground mb-1 mt-3" dir="ltr">
+<div
+  className="grid grid-cols-7 gap-1 text-xs font-display"
+  dir="ltr"
+  style={{ color: "#4C4C26" }}
+>
         {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
           <div key={i} className="py-1">{d}</div>
         ))}
@@ -95,7 +99,7 @@ className="hidden"
             style={
               d === 31
                 ? {
-                    color: "#B89B5E",
+color: "#4C4C26",
                     fontSize: "0.95rem",
                     fontWeight: 700,
                   }
@@ -107,7 +111,13 @@ className="hidden"
         ))}
       </div>
 
-      <div className="font-arabic text-base mt-4 text-primary" style={{ fontWeight: 600 }}>
+<div
+  className="font-arabic text-base mt-4"
+  style={{
+    fontWeight: 600,
+    color: "#902B0E",
+  }}
+>
         الجمعة 31 يوليو 2026
       </div>
     </div>
