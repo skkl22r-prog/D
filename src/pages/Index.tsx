@@ -55,7 +55,7 @@ className="hidden"
     <div
       className="mx-auto max-w-sm rounded-2xl p-6 text-center backdrop-blur-md"
       style={{
-        background: "#F8F6F2",
+background: "#EEE6DB",
 border: "1.5px solid #902B0E",
         boxShadow: "var(--shadow-soft)",
         color: "#C8C3BD",
@@ -65,7 +65,7 @@ border: "1.5px solid #902B0E",
         className="flex justify-between items-center font-display text-sm mb-3 px-2 py-2 rounded-lg"
         dir="ltr"
         style={{
-          background: "linear-gradient(135deg, #902B0E 0%, #4C4C26 100%)",
+background: "linear-gradient(135deg, #B25A34 0%, #70704A 100%)",
 color: "#F8F6F2",
           fontWeight: 600,
         }}
@@ -85,7 +85,11 @@ color: "#F8F6F2",
         ))}
       </div>
 
-      <div className="grid grid-cols-7 gap-1 text-xs font-display text-primary" dir="ltr">
+<div
+  className="grid grid-cols-7 gap-1 text-xs font-display"
+  dir="ltr"
+  style={{ color: "#4C4C26" }}
+>
         {[null, null, null, 1, 2, 3, 4,
           5, 6, 7, 8, 9, 10, 11,
           12, 13, 14, 15, 16, 17, 18,
