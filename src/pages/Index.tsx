@@ -8,7 +8,7 @@ import Countdown from "@/components/Countdown";
 import Timeline from "@/components/Timeline";
 import RSVP from "@/components/RSVP";
 import MusicToggle from "@/components/MusicToggle";
-import backgroundImg from "@/assets/IMG_4830.png";
+import backgroundImg from "@/assets/IMG_4841.png";
 
 const Index = () => {
   const [opened, setOpened] = useState(false);
