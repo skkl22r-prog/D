@@ -55,8 +55,8 @@ className="hidden"
     <div
       className="mx-auto max-w-sm rounded-2xl p-6 text-center backdrop-blur-md"
       style={{
-background: "#EEE6DB",
-border: "1.5px solid #902B0E",
+background: "#EEE7DC"
+border: "1.5px solid #A86A46"
         boxShadow: "var(--shadow-soft)",
         color: "#C8C3BD",
       }}
@@ -65,8 +65,8 @@ border: "1.5px solid #902B0E",
         className="flex justify-between items-center font-display text-sm mb-3 px-2 py-2 rounded-lg"
         dir="ltr"
         style={{
-background: "linear-gradient(135deg, #B25A34 0%, #70704A 100%)",
-color: "#F8F6F2",
+background: "linear-gradient(135deg, #C98A62 0%, #8A8A5A 100%)"
+color: "#F8F5EF"
           fontWeight: 600,
         }}
       >
@@ -88,7 +88,7 @@ color: "#F8F6F2",
 <div
   className="grid grid-cols-7 gap-1 text-xs font-display"
   dir="ltr"
-  style={{ color: "#4C4C26" }}
+  style={{ color: "#6A6A43" }}
 >
         {[null, null, null, 1, 2, 3, 4,
           5, 6, 7, 8, 9, 10, 11,
@@ -119,7 +119,7 @@ color: "#4C4C26",
   className="font-arabic text-base mt-4"
   style={{
     fontWeight: 600,
-    color: "#902B0E",
+    color: "#A65B30",
   }}
 >
         الجمعة 31 يوليو 2026
