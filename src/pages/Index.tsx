@@ -90,10 +90,10 @@ className="hidden"
           <div
             key={i}
             className={`aspect-square flex items-center justify-center rounded ${
-              d === 30 ? "heart-strike relative font-bold" : ""
+              d === 31 ? "heart-strike relative font-bold" : ""
             }`}
             style={
-              d === 30
+              d === 31
                 ? {
                     color: "#B89B5E",
                     fontSize: "0.95rem",
@@ -108,7 +108,7 @@ className="hidden"
       </div>
 
       <div className="font-arabic text-base mt-4 text-primary" style={{ fontWeight: 600 }}>
-        الخميس 30 يوليو 2026
+        الجمعة 31 يوليو 2026
       </div>
     </div>
   </Reveal>
