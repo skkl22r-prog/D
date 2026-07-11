@@ -65,10 +65,10 @@ border: "1.5px solid #A86A46"
         className="flex justify-between items-center font-display text-sm mb-3 px-2 py-2 rounded-lg"
         dir="ltr"
         style={{
-background: "linear-gradient(135deg, #C98A62 0%, #8A8A5A 100%)"
-color: "#F8F5EF"
-          fontWeight: 600,
-        }}
+  background: "linear-gradient(135deg, #C98A62 0%, #8A8A5A 100%)",
+  color: "#F8F5EF",
+  fontWeight: 600,
+}}
       >
         <span>Tuesday</span>
         <span>July</span>
