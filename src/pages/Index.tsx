@@ -14,9 +14,10 @@ const Index = () => {
   const [opened, setOpened] = useState(false);
 
   return (
-  <div
+<div
 style={{
-  background: "#F7F2EB",
+  background:
+    "linear-gradient(180deg, #F7F3EC 0%, #EFE8DE 100%)",
   minHeight: "100vh",
 }}
 >
