@@ -167,7 +167,6 @@ await fetch(
         <div
           className="mx-auto max-w-md rounded-2xl p-8 text-center backdrop-blur-md"
           style={{
-            style={{
   background: "#EEE7DC",
   border: "1.5px solid #A86A46",
   boxShadow: "var(--shadow-soft)",
