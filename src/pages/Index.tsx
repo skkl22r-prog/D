@@ -131,7 +131,7 @@ color: "#4C4C26",
           {/* Countdown */}
         <section className="px-4 py-16">
   <Reveal>
-    <h2 className="text-center font-arabic text-3xl mb-10" style={{ color: "#3C2E23" }}>
+    <h2 className="text-center font-arabic text-3xl mb-10" style={{ color: "#A65B30" }}>
       العدّ التنازلي
     </h2>
   </Reveal>
