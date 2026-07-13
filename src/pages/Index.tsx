@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Heart, QrCode, Baby, Camera, Clock } from "lucide-react";
+import { MapPin, Heart, QrCode, Baby, UtensilsCrossed, Clock } from "lucide-react";
 import invitationImg from "@/assets/IMG_4902.jpeg";
 import Envelope from "@/components/Envelope";
 import SprayParticles from "@/components/SprayParticles";
@@ -201,9 +201,9 @@ style={{ background: "#A86A46" }}
               />
               <div className="space-y-6">
                 {[
-                  { icon: Clock, text: "  الاستقبــــال : 9:00 م" },
-                  { icon: Baby, text: "يمنع اصطحاب الأطفال" },
-                  { icon: Camera, text: "يمنع دخول جوالات الكاميرا" },
+                  { icon: Clock, text: "  الاستقبــــال : 7:30 م" },
+                  { icon: UtensilsCrossed, text: "العشـــــاء 11:30 م" },
+                  { icon: Baby, text: " منعاً للأحراج يمنع اصطحاب الاطفال والعاملات منعاً باتاً" },
                   { icon: QrCode, text: "يرجى إبراز الباركود عند الدخول" },
                 ].map((d, i) => (
                   <Reveal key={i} delay={i * 120}>
