@@ -98,8 +98,8 @@ background: "hsla(25, 45%, 55%, 0.45)",
               alt="ختم الدعوة"
               className="w-44 h-44 sm:w-52 sm:h-52 object-contain"
               style={{
-filter: "drop-shadow(0 14px 40px hsla(35, 60%, 10%, 0.65))",
-              }}
+  filter: "none",
+}}
             />
           </div>
         </div>
