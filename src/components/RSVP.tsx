@@ -357,11 +357,12 @@ border: "1.5px solid #A86A46",
           disabled={!name.trim() || !choice || state.kind === "loading"}
           className="w-full mt-5 py-3 rounded-xl font-arabic text-base transition-all hover:scale-[1.02] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
           style={{
-            background: "linear-gradient(135deg, #B25A34 0%, #70704A 100%)",
-color: "#F8F6F2",
-boxShadow: "0 4px 12px rgba(168,106,70,.18)",
-            fontWeight: 700,
-          }}
+  background: "linear-gradient(135deg, #A65B30 0%, #4C4C26 100%)",
+  color: "#F8F6F2",
+  border: "1.5px solid #8A4A28",
+  boxShadow: "0 8px 22px rgba(76,76,38,.28)",
+  fontWeight: 700,
+}}
         >
           <Send className="w-4 h-4" />
           {state.kind === "loading" ? "جارٍ الإرسال..." : "إرسال"}
