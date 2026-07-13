@@ -59,7 +59,7 @@ if (!deviceId) {
 const qr_token = crypto.randomUUID();
 
 const { data: existing } = await supabase
-  .from("rsvps")
+  .from("rsvpsTif")
   .select("id")
   .eq("device_id", deviceId)
   .maybeSingle();
@@ -72,7 +72,7 @@ if (existing) {
   return;
 }
 
-  const { error } = await supabase.from("rsvps").insert({
+  const { error } = await supabase.from("rsvpsTif").insert({
     name: name.trim(),
     status: choice,
     device_id: deviceId,
@@ -86,7 +86,7 @@ if (existing) {
   return;
 }
 await fetch(
-  "https://docs.google.com/forms/d/e/1FAIpQLSfW3kWwWKQD0_q1G7S9Df3-4T7E-2ZVvtMHd6IEdPaXOYz4fg/formResponse",
+  "https://docs.google.com/forms/d/e/1FAIpQLSeCE28TU073BMpxKH8ZrICHIN_1gnQ4Eyy1zRlOgH690qWbRg/formResponse",
   {
     method: "POST",
     mode: "no-cors",
@@ -94,11 +94,15 @@ await fetch(
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: new URLSearchParams({
-      "entry.911642472": name.trim(),
-"entry.145314951": guestCount,
-      "entry.2040087077":
-        choice === "attending" ? "تاكيد الحضور" : "الاعتذار عن الحضور",
-    }),
+  "entry.1528094824": name.trim(),
+
+  // "entry.145314951": guestCount,
+
+  "entry.681729326":
+    choice === "attending"
+      ? "تاكيد الحضور"
+      : "الاعتذار عن الحضور",
+}),
   }
 );
 
@@ -285,56 +289,44 @@ border: "1.5px solid #A86A46",
 color: "#4C4C26",
           }}
           dir="rtl"
-        /><label
-  className="block font-arabic text-sm mb-2 mt-4 text-right"
-  style={{ color: "#A65B30" }}
->
-  عدد الأشخاص
-</label>
-<div className="flex flex-row-reverse gap-2">
-  {["5", "4", "3", "2", "1"].map((num) => (
-    <button
-      key={num}
-      type="button"
-      onClick={() => setGuestCount(num)}
-      className="flex-1 py-3 rounded-xl font-arabic transition-all"
-      style={{
-        background:
-  guestCount === num
-    ? "linear-gradient(135deg, #B25A34 0%, #70704A 100%)"
-    : "#F7F2EB",
-
-color: "#4C4C26",
-
-border: "1.5px solid #A86A46",
-
-boxShadow:
-  guestCount === num
-    ? "0 0 10px rgba(168,106,70,.18)"
-    : "none",
-      }}
+/>
+{false && (
+  <>
+    <label
+      className="block font-arabic text-sm mb-2 mt-4 text-right"
+      style={{ color: "#A65B30" }}
     >
-      {num}
-    </button>
-  ))}
-</div>
+      عدد الأشخاص
+    </label>
+
+    <div className="flex flex-row-reverse gap-2">
+      {["5", "4", "3", "2", "1"].map((num) => (
+        <button
+          key={num}
+          type="button"
+          onClick={() => setGuestCount(num)}
+          className="flex-1 py-3 rounded-xl font-arabic transition-all"
+          style={{
+            background:
+              guestCount === num
+                ? "linear-gradient(135deg, #B25A34 0%, #70704A 100%)"
+                : "#F7F2EB",
+            color: "#4C4C26",
+            border: "1.5px solid #A86A46",
+            boxShadow:
+              guestCount === num
+                ? "0 0 10px rgba(168,106,70,.18)"
+                : "none",
+          }}
+        >
+          {num}
+        </button>
+      ))}
+    </div>
+  </>
+)}
 
 <div className="grid grid-cols-2 gap-3 mt-5">
-  <button
-    onClick={() => setChoice("attending")}
-    className="py-3 rounded-xl font-arabic text-sm transition-all flex items-center justify-center gap-2"
-    style={{
-      background:
-  choice === "attending"
-    ? "linear-gradient(135deg, #B25A34 0%, #70704A 100%)"
-    : "#F7F2EB",
-
-color: "#4C4C26",
-
-border: "1.5px solid #A86A46",
-      boxShadow: choice === "attending" ? "0 0 20px hsl(42 80% 60% / 0.5)" : "none",
-    }}
-  >
             <Check className="w-4 h-4" />
             تأكيد الحضور
           </button>
