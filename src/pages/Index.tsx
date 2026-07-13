@@ -16,8 +16,7 @@ const Index = () => {
   return (
 <div
 style={{
-  background:
-    "linear-gradient(180deg, #F7F3EC 0%, #EFE8DE 100%)",
+  background: "#EEE7DC",
   minHeight: "100vh",
 }}
 >
