@@ -169,11 +169,21 @@ await fetch(
           style={{
             style={{
   background: "#EEE7DC",
-  border: "1.5px solid #A86A
-          }}
+  border: "1.5px solid #A86A46",
+  boxShadow: "var(--shadow-soft)",
+}}
         >
-          <Heart className="mx-auto w-10 h-10 mb-3" style={{ color: "hsl(0 70% 55%)", fill: "hsl(0 70% 55%)" }} />
-          <p className="font-arabic text-xl text-primary leading-loose">
+<Heart
+  className="mx-auto w-10 h-10 mb-3"
+  style={{
+    color: "#A65B30",
+    fill: "#A65B30",
+  }}
+/>
+<p
+  className="font-arabic text-xl leading-loose"
+  style={{ color: "#4C4C26" }}
+>
             نقدّر اعتذارك يا {state.name} ❤️
             <br />
             ونراك في مناسبة أخرى بإذن الله
@@ -257,10 +267,12 @@ border: "1.5px solid #A86A46",
           boxShadow: "var(--shadow-soft)",
         }}
       >
-className="block font-arabic text-sm mb-2 text-right"
-style={{ color: "#A65B30" }}
-          الاسم الكريم
-        </label>
+<label
+  className="block font-arabic text-sm mb-2 text-right"
+  style={{ color: "#A65B30" }}
+>
+  الاسم الكريم
+</label>
         <input
           type="text"
           value={name}
@@ -274,11 +286,12 @@ border: "1.5px solid #A86A46",
 color: "#4C4C26",
           }}
           dir="rtl"
-        /><label className="block font-arabic text-sm mb-2 mt-4 text-right"
-style={{ color: "#A65B30" }}
+        /><label
+  className="block font-arabic text-sm mb-2 mt-4 text-right"
+  style={{ color: "#A65B30" }}
+>
   عدد الأشخاص
 </label>
-
 <div className="flex flex-row-reverse gap-2">
   {["5", "4", "3", "2", "1"].map((num) => (
     <button
