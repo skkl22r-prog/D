@@ -2,8 +2,7 @@ import Reveal from "./Reveal";
 
 const events = [
   { time: "7:30 PM", label: "الاستقبال" },
-  { time: "10:00 PM", label: "الزفة" },
-  { time: "1:30 AM", label: "العشاء" },
+  { time: "11:30 PM", label: "العشاء" },
 ];
 
 const Timeline = () => {
@@ -27,12 +26,25 @@ const Timeline = () => {
               />
               <div className="grid grid-cols-2 w-full gap-8">
                 {/* RTL: first col on right -> time, second col on left -> label */}
-                <div className="text-right pr-10 font-display text-2xl text-primary" dir="ltr" style={{ textAlign: "right" }}>
-                  {e.time}
-                </div>
-                <div className="text-left pl-10 font-arabic text-2xl text-primary">
-                  {e.label}
-                </div>
+               <div
+  className="text-right pr-10 font-display text-2xl"
+  dir="ltr"
+  style={{
+    textAlign: "right",
+    color: "#4C4C26",
+  }}
+>
+  {e.time}
+</div>
+
+<div
+  className="text-left pl-10 font-arabic text-2xl"
+  style={{
+    color: "#A65B30",
+  }}
+>
+  {e.label}
+</div>
               </div>
             </div>
           </Reveal>
