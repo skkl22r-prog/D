@@ -167,9 +167,9 @@ await fetch(
         <div
           className="mx-auto max-w-md rounded-2xl p-8 text-center backdrop-blur-md"
           style={{
-            background: "hsla(40, 50%, 95%, 0.7)",
-            border: "1.5px solid hsl(42 75% 55% / 0.5)",
-            boxShadow: "var(--shadow-soft)",
+            style={{
+  background: "#EEE7DC",
+  border: "1.5px solid #A86A
           }}
         >
           <Heart className="mx-auto w-10 h-10 mb-3" style={{ color: "hsl(0 70% 55%)", fill: "hsl(0 70% 55%)" }} />
@@ -191,8 +191,8 @@ if (state.kind === "qr") {
         <div
           className="rounded-2xl p-6 text-center backdrop-blur-md"
           style={{
-            background: "hsla(40, 50%, 95%, 0.55)",
-            border: "1.5px solid hsl(42 75% 55% / 0.4)",
+            background: "#EEE7DC",
+border: "1.5px solid #A86A46",
             boxShadow: "var(--shadow-soft)",
           }}
         >
@@ -252,12 +252,13 @@ if (state.kind === "qr") {
       <div
         className="mx-auto max-w-md rounded-2xl p-8 backdrop-blur-md"
         style={{
-          background: "hsla(40, 50%, 95%, 0.6)",
-          border: "1.5px solid hsl(42 75% 55% / 0.5)",
+          background: "#EEE7DC",
+border: "1.5px solid #A86A46",
           boxShadow: "var(--shadow-soft)",
         }}
       >
-        <label className="block font-arabic text-sm text-primary mb-2 text-right">
+className="block font-arabic text-sm mb-2 text-right"
+style={{ color: "#A65B30" }}
           الاسم الكريم
         </label>
         <input
@@ -268,12 +269,13 @@ if (state.kind === "qr") {
           placeholder="اكتب اسمك هنا"
           className="w-full px-4 py-3 rounded-xl font-arabic text-right outline-none transition-colors"
           style={{
-            background: "hsla(40, 50%, 98%, 0.8)",
-            border: "1.5px solid hsl(42 60% 60% / 0.6)",
-            color: "hsl(30 35% 22%)",
+            background: "#F7F2EB",
+border: "1.5px solid #A86A46",
+color: "#4C4C26",
           }}
           dir="rtl"
-        /><label className="block font-arabic text-sm text-primary mb-2 mt-4 text-right">
+        /><label className="block font-arabic text-sm mb-2 mt-4 text-right"
+style={{ color: "#A65B30" }}
   عدد الأشخاص
 </label>
 
@@ -286,18 +288,18 @@ if (state.kind === "qr") {
       className="flex-1 py-3 rounded-xl font-arabic transition-all"
       style={{
         background:
-          guestCount === num
-            ? "linear-gradient(135deg, hsl(45 80% 65%), hsl(38 70% 45%))"
-            : "hsla(40, 50%, 98%, 0.8)",
-        color:
-          guestCount === num
-            ? "hsl(30 40% 18%)"
-            : "hsl(30 35% 22%)",
-        border: "1.5px solid hsl(42 60% 60% / 0.6)",
-        boxShadow:
-          guestCount === num
-            ? "0 0 20px hsl(42 80% 60% / 0.35)"
-            : "none",
+  guestCount === num
+    ? "linear-gradient(135deg, #B25A34 0%, #70704A 100%)"
+    : "#F7F2EB",
+
+color: "#4C4C26",
+
+border: "1.5px solid #A86A46",
+
+boxShadow:
+  guestCount === num
+    ? "0 0 10px rgba(168,106,70,.18)"
+    : "none",
       }}
     >
       {num}
@@ -311,11 +313,13 @@ if (state.kind === "qr") {
     className="py-3 rounded-xl font-arabic text-sm transition-all flex items-center justify-center gap-2"
     style={{
       background:
-        choice === "attending"
-          ? "linear-gradient(135deg, hsl(45 80% 65%), hsl(38 70% 45%))"
-          : "hsla(40, 50%, 98%, 0.6)",
-      color: choice === "attending" ? "hsl(30 40% 18%)" : "hsl(38 65% 38%)",
-      border: "1.5px solid hsl(42 75% 55%)",
+  choice === "attending"
+    ? "linear-gradient(135deg, #B25A34 0%, #70704A 100%)"
+    : "#F7F2EB",
+
+color: "#4C4C26",
+
+border: "1.5px solid #A86A46",
       boxShadow: choice === "attending" ? "0 0 20px hsl(42 80% 60% / 0.5)" : "none",
     }}
   >
@@ -327,11 +331,16 @@ if (state.kind === "qr") {
             className="py-3 rounded-xl font-arabic text-sm transition-all flex items-center justify-center gap-2"
             style={{
               background:
-                choice === "declined"
-                  ? "hsl(30 30% 35%)"
-                  : "hsla(40, 50%, 98%, 0.6)",
-              color: choice === "declined" ? "hsl(40 50% 95%)" : "hsl(30 25% 35%)",
-              border: "1.5px solid hsl(30 30% 50%)",
+  choice === "declined"
+    ? "#A65B30"
+    : "#F7F2EB",
+
+color:
+  choice === "declined"
+    ? "#F8F6F2"
+    : "#4C4C26",
+
+border: "1.5px solid #A86A46",
             }}
           >
             <X className="w-4 h-4" />
@@ -344,9 +353,9 @@ if (state.kind === "qr") {
           disabled={!name.trim() || !choice || state.kind === "loading"}
           className="w-full mt-5 py-3 rounded-xl font-arabic text-base transition-all hover:scale-[1.02] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
           style={{
-            background: "linear-gradient(135deg, hsl(45 80% 65%), hsl(38 70% 42%))",
-            color: "hsl(30 40% 18%)",
-            boxShadow: "0 4px 20px hsl(42 80% 50% / 0.45)",
+            background: "linear-gradient(135deg, #B25A34 0%, #70704A 100%)",
+color: "#F8F6F2",
+boxShadow: "0 4px 12px rgba(168,106,70,.18)",
             fontWeight: 700,
           }}
         >
