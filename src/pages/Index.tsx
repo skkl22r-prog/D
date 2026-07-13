@@ -152,11 +152,11 @@ color: "#4C4C26",
       <MapPin className="mx-auto w-10 h-10 mb-3" style={{ color: "#4C4C26" }} />
 
       <div className="font-arabic text-2xl" style={{ color: "#A65B30" }}>
-        قاعة المردون
+منتجع أوليفا
       </div>
 
       <div className="font-arabic text-lg mt-1" style={{ color: "#4C4C26" }}>
-        جدة
+        عنيزة
       </div>
     </div>
   </Reveal>
@@ -171,7 +171,7 @@ border: "1.5px solid #A86A46",
     >
       <iframe
         title="موقع الحفل - قاعة المردون"
-        src="https://www.google.com/maps?q=قاعة+المردون+جدة&output=embed"
+src="https://www.google.com/maps?q=منتجع+أوليفا+عنيزة&output=embed"
         width="100%"
         height="320"
         loading="lazy"
@@ -213,12 +213,14 @@ style={{ color: "#A65B30" }}
 style={{ background: "#A86A46" }}
               />
               <div className="space-y-6">
-                {[
-                  { icon: Clock, text: "  الاستقبــــال : 7:30 م" },
-                  { icon: UtensilsCrossed, text: "العشـــــاء 11:30 م" },
-                  { icon: Baby, text: " منعاً للأحراج يمنع اصطحاب الاطفال والعاملات منعاً باتاً" },
-                  { icon: QrCode, text: "يرجى إبراز الباركود عند الدخول" },
-                ].map((d, i) => (
+               {[
+  false && { icon: Clock, text: "الاستقبــــال : 7:30 م" },
+  false && { icon: UtensilsCrossed, text: "العشـــــاء 11:30 م" },
+  { icon: Baby, text: "منعاً للأحراج يمنع اصطحاب الاطفال والعاملات منعاً باتاً" },
+  { icon: QrCode, text: "يرجى إبراز الباركود عند الدخول" },
+]
+.filter(Boolean)
+.map((d, i) => (
                   <Reveal key={i} delay={i * 120}>
                     <div className="relative pr-16">
                       <div
