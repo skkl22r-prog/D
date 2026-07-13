@@ -189,7 +189,7 @@ border: "1.5px solid #A86A46",
   <Reveal>
     <h2
       className="text-center font-arabic text-3xl mb-10"
-      style={{ color: "#3C2E23" }}
+style={{ color: "#A65B30" }}
     >
       تفاصيل الحفل
     </h2>
@@ -198,7 +198,7 @@ border: "1.5px solid #A86A46",
   <div className="relative max-w-xl mx-auto">
               <div
                 className="absolute top-6 bottom-6 right-6 w-px"
-                style={{ background: "hsl(42 75% 55% / 0.5)" }}
+style={{ background: "#A86A46" }}
               />
               <div className="space-y-6">
                 {[
@@ -212,28 +212,29 @@ border: "1.5px solid #A86A46",
                       <div
                         className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center z-10"
                         style={{
-                          background: "hsl(40 50% 95%)",
-                          border: "2px solid hsl(42 75% 50%)",
-                          boxShadow: "0 0 14px hsl(42 80% 60% / 0.4)",
+                          background: "#EEE7DC",
+border: "2px solid #A86A46",
+boxShadow: "0 0 10px rgba(168,106,70,0.18)",
                         }}
                       >
                         <span
                           className="w-2 h-2 rounded-full"
-                          style={{ background: "hsl(42 75% 50%)" }}
+style={{ background: "#4C4C26" }}
                         />
                       </div>
                       <div
                         className="rounded-xl px-6 py-5 backdrop-blur-md flex items-center justify-between gap-4"
                         style={{
-background: "#F8F6F2",
-                          border: "1.5px solid hsl(42 75% 55% / 0.4)",
+background: "#EEE7DC",
+border: "1.5px solid #A86A46",
                           boxShadow: "var(--shadow-soft)",
                         }}
                       >
-                        <span className="font-arabic text-lg text-primary flex-1 text-right">
+                        <span className="font-arabic text-lg flex-1 text-right"
+style={{ color: "#4C4C26" }}>
                           {d.text}
                         </span>
-                        <d.icon className="w-7 h-7 shrink-0" style={{ color: "hsl(42 75% 45%)" }} />
+                        <d.icon className="w-7 h-7 shrink-0" style={{ color: "#A65B30" }} />
                       </div>
                     </div>
                   </Reveal>
@@ -247,13 +248,13 @@ background: "#F8F6F2",
             <Reveal>
 <h2
   className="text-center font-arabic text-3xl mb-2"
-  style={{ color: "#3C2E23" }}
+style={{ color: "#A65B30" }}
 >
   أكّد حضورك
 </h2>
               <p
   className="text-center font-arabic text-sm mb-10"
-  style={{ color: "#3C2E23" }}
+style={{ color: "#4C4C26" }}
 >
   نتشرف بحضوركم — سيتم إصدار باركود خاص لكل ضيف
 </p>
@@ -266,7 +267,7 @@ background: "#F8F6F2",
             <Reveal>
 <div
   className="flex items-center justify-center gap-2"
-  style={{ color: "#3C2E23" }}
+style={{ color: "#A65B30" }}
 >
                 <Heart className="w-4 h-4 fill-current" />
                 <span className="font-arabic text-sm">
@@ -276,7 +277,7 @@ background: "#F8F6F2",
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline underline-offset-4 transition-colors"
-style={{ color: "#3C2E23" }}
+style={{ color: "#4C4C26" }}
                   >
                     متجر غيمة
                   </a>
