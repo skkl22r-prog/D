@@ -107,7 +107,7 @@ background: "hsla(25, 45%, 55%, 0.45)",
 
       <div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-sm font-arabic animate-pulse z-10"
-style={{ color: "#A86A46" }}
+style={{ color: "#4C4C26" }}
       >
         اضغط لفتح الدعوة
       </div>
