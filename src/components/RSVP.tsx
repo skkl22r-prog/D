@@ -327,11 +327,31 @@ color: "#4C4C26",
 )}
 
 <div className="grid grid-cols-2 gap-3 mt-5">
-            <Check className="w-4 h-4" />
-            تأكيد الحضور
-          </button>
-          <button
-            onClick={() => setChoice("declined")}
+  <button
+    onClick={() => setChoice("attending")}
+    className="py-3 rounded-xl font-arabic text-sm transition-all flex items-center justify-center gap-2"
+    style={{
+      background:
+        choice === "attending"
+          ? "linear-gradient(135deg, #B25A34 0%, #70704A 100%)"
+          : "#F7F2EB",
+
+      color: "#4C4C26",
+
+      border: "1.5px solid #A86A46",
+
+      boxShadow:
+        choice === "attending"
+          ? "0 0 20px hsl(42 80% 60% / 0.5)"
+          : "none",
+    }}
+  >
+    <Check className="w-4 h-4" />
+    تأكيد الحضور
+  </button>
+
+  <button
+    onClick={() => setChoice("declined")}
             className="py-3 rounded-xl font-arabic text-sm transition-all flex items-center justify-center gap-2"
             style={{
               background:
