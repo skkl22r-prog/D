@@ -18,7 +18,7 @@ const Envelope = ({ onOpen }: EnvelopeProps) => {
   return (
     <div
       className="fixed inset-0 z-40 cursor-pointer overflow-hidden"
-      style={{ background: "hsl(30 35% 18%)", perspective: "2000px" }}
+style={{ background: "#D8CBBB", perspective: "2000px" }}
       onClick={trigger}
     >
       {/* Revealed invitation underneath */}
@@ -47,7 +47,7 @@ const Envelope = ({ onOpen }: EnvelopeProps) => {
               filter: "blur(18px) brightness(0.85)",
             }}
           >
-            <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, hsla(35,40%,18%,0.55), hsla(35,40%,18%,0.35))" }} />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, hsla(30,25%,35%,0.35), hsla(30,25%,35%,0.15))" }} />
           </div>
         </div>
 
@@ -70,7 +70,7 @@ const Envelope = ({ onOpen }: EnvelopeProps) => {
               filter: "blur(18px) brightness(0.85)",
             }}
           >
-            <div className="absolute inset-0" style={{ background: "linear-gradient(-90deg, hsla(35,40%,18%,0.55), hsla(35,40%,18%,0.35))" }} />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(-90deg, hsla(30,25%,35%,0.35), hsla(30,25%,35%,0.15))" }} />
           </div>
         </div>
 
@@ -78,7 +78,7 @@ const Envelope = ({ onOpen }: EnvelopeProps) => {
         <div
           className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px pointer-events-none"
           style={{
-            background: "hsla(45, 80%, 70%, 0.55)",
+background: "hsla(25, 45%, 55%, 0.45)",
             opacity: opening ? 0 : 1,
             transition: "opacity 0.6s ease-out",
           }}
@@ -98,7 +98,7 @@ const Envelope = ({ onOpen }: EnvelopeProps) => {
               alt="ختم الدعوة"
               className="w-44 h-44 sm:w-52 sm:h-52 object-contain"
               style={{
-                filter: "drop-shadow(0 14px 40px hsla(35, 60%, 10%, 0.65)) drop-shadow(0 0 25px hsla(45, 90%, 60%, 0.3))",
+filter: "drop-shadow(0 14px 40px hsla(35, 60%, 10%, 0.65))",
               }}
             />
           </div>
@@ -107,7 +107,7 @@ const Envelope = ({ onOpen }: EnvelopeProps) => {
 
       <div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-sm font-arabic animate-pulse z-10"
-        style={{ color: "hsla(45, 80%, 80%, 0.9)" }}
+style={{ color: "#A86A46" }}
       >
         اضغط لفتح الدعوة
       </div>
