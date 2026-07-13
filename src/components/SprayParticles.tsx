@@ -27,14 +27,14 @@ const SprayParticles = () => {
       tw: Math.random() * Math.PI * 2,
       ts: Math.random() * 0.05 + 0.025,
       isStar: Math.random() < 0.18,
-      hue: 38 + Math.random() * 14, // gold range 38-52
-      sat: 70 + Math.random() * 25,
+      hue: 22 + Math.random() * 10, // copper orange range 22-32
+sat: 65 + Math.random() * 25,
     }));
 
     const drawStar = (x: number, y: number, r: number, alpha: number, hue: number) => {
       ctx.save();
       ctx.translate(x, y);
-      ctx.strokeStyle = `hsla(${hue}, 90%, 70%, ${alpha})`;
+ctx.strokeStyle = `hsla(${hue}, 85%, 55%, ${alpha})`;
       ctx.lineWidth = 0.7;
       ctx.beginPath();
       ctx.moveTo(-r * 2.6, 0); ctx.lineTo(r * 2.6, 0);
@@ -60,9 +60,9 @@ const SprayParticles = () => {
         const alpha = p.o * twinkle;
         // gold glow halo
         const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
-        grad.addColorStop(0, `hsla(${p.hue}, ${p.sat}%, 75%, ${alpha * 0.85})`);
-        grad.addColorStop(0.4, `hsla(${p.hue}, ${p.sat}%, 60%, ${alpha * 0.25})`);
-        grad.addColorStop(1, `hsla(${p.hue}, 80%, 50%, 0)`);
+        grad.addColorStop(0, `hsla(${p.hue}, ${p.sat}%, 60%, ${alpha * 0.9})`);
+grad.addColorStop(0.4, `hsla(${p.hue}, ${p.sat}%, 45%, ${alpha * 0.3})`);
+grad.addColorStop(1, `hsla(${p.hue}, 70%, 40%, 0)`);
         ctx.fillStyle = grad;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
