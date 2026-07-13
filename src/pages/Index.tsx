@@ -183,7 +183,20 @@ border: "1.5px solid #A86A46",
 
 
 
-          {/* Details */}
+          {/* Program timeline */}
+<section className="px-4 py-16">
+  <Reveal>
+    <h2
+      className="text-center font-arabic text-3xl mb-10"
+      style={{ color: "#A65B30" }}
+    >
+      برنامج الحفل
+    </h2>
+  </Reveal>
+
+  <Timeline />
+</section>
+{/* Details */}
           <section className="px-4 py-16">
   <Reveal>
     <h2
