@@ -143,20 +143,20 @@ color: "#4C4C26",
 
 <section className="px-4 py-16">
   <Reveal>
-    <h2 className="text-center font-arabic text-3xl mb-8" style={{ color: "#3C2E23" }}>
+    <h2 className="text-center font-arabic text-3xl mb-8" style={{ color: "#A65B30" }}>
       موقع حفلنا
     </h2>
   </Reveal>
 
   <Reveal delay={100}>
     <div className="text-center mb-6">
-      <MapPin className="mx-auto w-10 h-10 mb-3" style={{ color: "#3C2E23" }} />
+      <MapPin className="mx-auto w-10 h-10 mb-3" style={{ color: "#4C4C26" }} />
 
-      <div className="font-arabic text-2xl" style={{ color: "#3C2E23" }}>
+      <div className="font-arabic text-2xl" style={{ color: "#A65B30" }}>
         قاعة المردون
       </div>
 
-      <div className="font-arabic text-lg mt-1" style={{ color: "#3C2E23" }}>
+      <div className="font-arabic text-lg mt-1" style={{ color: "#4C4C26" }}>
         جدة
       </div>
     </div>
@@ -167,7 +167,7 @@ color: "#4C4C26",
       className="max-w-2xl mx-auto rounded-2xl overflow-hidden"
       style={{
         boxShadow: "var(--shadow-soft)",
-        border: "1.5px solid hsl(42 75% 55% / 0.5)",
+border: "1.5px solid #A86A46",
       }}
     >
       <iframe
