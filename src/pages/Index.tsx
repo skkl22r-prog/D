@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { MapPin, Heart, QrCode, Baby, UtensilsCrossed, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MapPin, Heart, QrCode, Baby, UtensilsCrossed, Clock, ChevronDown } from "lucide-react";
 import soso from "@/assets/soso.mp4";
 import Envelope from "@/components/Envelope";
 import SprayParticles from "@/components/SprayParticles";
@@ -11,7 +11,20 @@ import MusicToggle from "@/components/MusicToggle";
 import backgroundImg from "@/assets/IMG_4841.png";
 
 const Index = () => {
-  const [opened, setOpened] = useState(false);
+const [opened, setOpened] = useState(false);
+const [hideIndicator, setHideIndicator] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 30) {
+      setHideIndicator(true);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   return (
 <div
@@ -34,8 +47,27 @@ style={{
       <MusicToggle active={opened} />
       {!opened && <Envelope onOpen={() => setOpened(true)} />}
 
-      {opened && (
-        <main className="relative z-10">
+{opened && (
+  <>
+    <div
+      className={`fixed bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500 ${
+        hideIndicator ? "opacity-0" : "opacity-100"
+      }`}
+    >
+      <p
+        className="font-arabic text-sm text-center mb-1"
+        style={{ color: "#4C4C26" }}
+      >
+        اسحب للأسفل
+      </p>
+
+      <ChevronDown
+        className="mx-auto w-6 h-6 animate-bounce"
+        style={{ color: "#A65B30" }}
+      />
+    </div>
+
+    <main className="relative z-10">
 <section className="flex justify-center relative z-20">
   <video
     src={soso}
