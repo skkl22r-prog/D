@@ -50,10 +50,10 @@ style={{
 {opened && (
   <>
     <div
-      className={`fixed bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500 ${
-        hideIndicator ? "opacity-0" : "opacity-100"
-      }`}
-    >
+  className={`fixed bottom-20 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-500 ${
+    hideIndicator ? "opacity-0" : "opacity-100"
+  }`}
+>
       <p
         className="font-arabic text-sm text-center mb-1"
         style={{ color: "#4C4C26" }}
