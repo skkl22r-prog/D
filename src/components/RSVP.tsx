@@ -81,7 +81,7 @@ if (existing) {
   });
 
   if (error) {
-  console.log("SUPABASE ERROR:", error);
+alert(JSON.stringify(error, null, 2));
   setState({ kind: "error", msg: "حدث خطأ، حاول مرة أخرى" });
   return;
 }
