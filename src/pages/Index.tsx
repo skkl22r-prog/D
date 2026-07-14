@@ -68,21 +68,25 @@ style={{
     </div>
 
     <main className="relative z-10">
-<section className="flex justify-center relative z-20">
-  <video
-    src={soso}
-    autoPlay
-    muted
-    playsInline
-preload="auto"
-    controls={false}
-    className="w-screen h-auto max-w-none block"
+  <section
+    className="relative z-20 overflow-hidden"
     style={{
-      boxShadow: "var(--shadow-elegant)",
-      display: "block",
+      minHeight: "100vh",
     }}
-  />
-</section>
+  >
+    <video
+      src={soso}
+      autoPlay
+      muted
+      playsInline
+      preload="auto"
+      controls={false}
+      className="absolute inset-0 w-full h-full object-cover"
+      style={{
+        boxShadow: "var(--shadow-elegant)",
+      }}
+    />
+  </section>
 
           {/* Calendar block — date 7/7/2026 with heart strikethrough */}
           <section className="px-4 py-16">
