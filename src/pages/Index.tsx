@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+ import { useState, useEffect } from "react";
 import { MapPin, Heart, QrCode, Baby, UtensilsCrossed, Clock, ChevronDown } from "lucide-react";
 import soso from "@/assets/soso.mp4";
 import Envelope from "@/components/Envelope";
@@ -334,9 +334,10 @@ style={{ color: "#4C4C26" }}
                 </span>
               </div>
             </Reveal>
-          </footer>
-        </main>
-      )}
+         </footer>
+</main>
+</>
+)}
     </div>
   );
 };
