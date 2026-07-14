@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MapPin, Heart, QrCode, Baby, UtensilsCrossed, Clock } from "lucide-react";
-import invitationImg from "@/assets/IMG_4902.jpeg";
+import soso from "@/assets/soso.mp4";
 import Envelope from "@/components/Envelope";
 import SprayParticles from "@/components/SprayParticles";
 import Reveal from "@/components/Reveal";
@@ -37,16 +37,19 @@ style={{
       {opened && (
         <main className="relative z-10">
 <section className="flex justify-center relative z-20">
-  <img
-    src={invitationImg}
-    alt=" غيمة"
+  <video
+    src={soso}
+    autoPlay
+    muted
+    playsInline
+    controls={false}
     className="w-screen h-auto max-w-none block"
     style={{
       boxShadow: "var(--shadow-elegant)",
       display: "block",
     }}
   />
-</section> 
+</section>
 
           {/* Calendar block — date 7/7/2026 with heart strikethrough */}
           <section className="px-4 py-16">
