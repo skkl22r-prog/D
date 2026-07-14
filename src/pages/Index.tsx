@@ -50,7 +50,7 @@ style={{
 {opened && (
   <>
     <div
-  className={`fixed bottom-20 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-500 ${
+  className={`fixed bottom-12 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-500 ${
     hideIndicator ? "opacity-0" : "opacity-100"
   }`}
 >
