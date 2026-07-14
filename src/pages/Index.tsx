@@ -42,6 +42,7 @@ style={{
     autoPlay
     muted
     playsInline
+preload="auto"
     controls={false}
     className="w-screen h-auto max-w-none block"
     style={{
