@@ -27,15 +27,7 @@ useEffect(() => {
   return () => window.removeEventListener("scroll", handleScroll);
 }, []);
 
-useEffect(() => {
-  if (!opened) return;
 
-  const timer = setTimeout(() => {
-    setShowIndicator(true);
-  }, 27000); // بعد 27 ثانية
-
-  return () => clearTimeout(timer);
-}, [opened]);
 
 
 
@@ -96,6 +88,11 @@ style={{
       playsInline
       preload="auto"
       controls={false}
+onTimeUpdate={(e) => {
+  if (e.currentTarget.currentTime >= 27) {
+    setShowIndicator(true);
+  }
+}}
       className="absolute inset-0 w-full h-full object-cover"
       style={{
         boxShadow: "var(--shadow-elegant)",
