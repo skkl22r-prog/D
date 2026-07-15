@@ -109,30 +109,39 @@
   }
 
   /* Heart-shaped strikethrough using mask */
-  .heart-strike {
-    position: relative;
-  }
-  .heart-strike::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 110%;
-    height: 90%;
-    transform: translate(-50%, -50%);
-    background: hsl(0 75% 55%);
-    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'><path d='M50 85 C 20 65 5 45 5 28 C 5 14 16 4 28 4 C 38 4 46 10 50 18 C 54 10 62 4 72 4 C 84 4 95 14 95 28 C 95 45 80 65 50 85 Z' fill='black' stroke='black' stroke-width='6' stroke-linejoin='round'/></svg>") no-repeat center / contain;
-            mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'><path d='M50 85 C 20 65 5 45 5 28 C 5 14 16 4 28 4 C 38 4 46 10 50 18 C 54 10 62 4 72 4 C 84 4 95 14 95 28 C 95 45 80 65 50 85 Z' fill='black' stroke='black' stroke-width='6' stroke-linejoin='round'/></svg>") no-repeat center / contain;
-    opacity: 0;
-    animation: heart-stamp 1.2s ease-out 0.6s forwards;
-    pointer-events: none;
-  }
-  @keyframes heart-stamp {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(2); }
-    60% { opacity: 0.95; transform: translate(-50%, -50%) scale(0.95); }
-    100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
-  }
+.heart-strike {
+  position: relative;
+}
 
+.heart-strike::after {
+  content: "♡";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #902B0E;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1;
+  opacity: 0;
+  animation: heart-stamp 1.2s ease-out 0.6s forwards;
+  pointer-events: none;
+}
+
+@keyframes heart-stamp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+  60% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
   .animate-float-slow {
     animation: float-slow 4s ease-in-out infinite;
   }
