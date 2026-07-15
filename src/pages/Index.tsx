@@ -13,6 +13,7 @@ import backgroundImg from "@/assets/IMG_4841.png";
 const Index = () => {
 const [opened, setOpened] = useState(false);
 const [hideIndicator, setHideIndicator] = useState(false);
+const [showIndicator, setShowIndicator] = useState(false);
 
 useEffect(() => {
   const handleScroll = () => {
@@ -25,6 +26,18 @@ useEffect(() => {
 
   return () => window.removeEventListener("scroll", handleScroll);
 }, []);
+
+useEffect(() => {
+  if (!opened) return;
+
+  const timer = setTimeout(() => {
+    setShowIndicator(true);
+  }, 27000); // بعد 27 ثانية
+
+  return () => clearTimeout(timer);
+}, [opened]);
+
+
 
   return (
 <div
@@ -51,7 +64,9 @@ style={{
   <>
     <div
   className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-500 ${
-    hideIndicator ? "opacity-0" : "opacity-100"
+    showIndicator && !hideIndicator
+      ? "opacity-100"
+      : "opacity-0"
   }`}
 >
       <p
