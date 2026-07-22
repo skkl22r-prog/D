@@ -14,7 +14,8 @@ type State =
   | { kind: "error"; msg: string }
   | { kind: "qr"; name: string; qr: string };
 const RSVP = () => {
-  const [name, setName] = useState("");
+const [name, setName] = useState("");
+const [phone, setPhone] = useState("");
 const [guestCount, setGuestCount] = useState("");
   const [choice, setChoice] = useState<"attending" | "declined" | null>(null);
   const [state, setState] = useState<State>({ kind: "form" });
@@ -49,36 +50,74 @@ if (savedDeclined) {
 
   setState({ kind: "loading" });
 
-  let deviceId = localStorage.getItem("device_id");
-
-if (!deviceId) {
-  deviceId = crypto.randomUUID();
-  localStorage.setItem("device_id", deviceId);
-}
-
 const qr_token = crypto.randomUUID();
 
-const { data: existing } = await supabase
-  .from("rsvpsTif")
-  .select("id")
-  .eq("device_id", deviceId)
-  .maybeSingle();
+let guest = null;
+let cleanPhone = "";
 
-if (existing) {
-  setState({
-    kind: "error",
-    msg: "تم التسجيل مسبقاً من هذا الجهاز",
-  });
-  return;
+if (choice === "attending") {
+  cleanPhone = phone.trim().replace(/\s/g, "");
+
+  const { data, error: checkError } = await supabase
+    .from("rsvpsTif")
+    .select("*")
+    .eq("phone", cleanPhone)
+    .maybeSingle();
+
+  if (checkError) {
+    setState({
+      kind: "error",
+      msg: "حدث خطأ، حاول مرة أخرى",
+    });
+    return;
+  }
+
+  guest = data;
+
+  if (!guest) {
+    setState({
+      kind: "error",
+      msg: "عذرًا، الرقم المدخل ليس من ضمن قائمة المدعوين.",
+    });
+    return;
+  }
+
+  if (guest.qr_token) {
+    setState({
+      kind: "error",
+      msg: "تم تسجيل هذا الرقم مسبقًا، ولا يمكن استخراج باركود جديد.",
+    });
+    return;
+  }
 }
 
-  const { error } = await supabase.from("rsvpsTif").insert({
-    name: name.trim(),
-    status: choice,
-    device_id: deviceId,
-    qr_token: qr_token,
-    scanned: false,
-  });
+
+
+  let error;
+
+if (choice === "attending") {
+  const result = await supabase
+    .from("rsvpsTif")
+    .update({
+      name: name.trim(),
+      status: "attending",
+      qr_token: qr_token,
+      scanned: false,
+    })
+    .eq("phone", cleanPhone);
+
+  error = result.error;
+
+} else {
+  const result = await supabase
+    .from("rsvpsTif")
+    .insert({
+      name: name.trim(),
+      status: "declined",
+    });
+
+  error = result.error;
+}
 
   if (error) {
 alert(JSON.stringify(error, null, 2));
@@ -290,6 +329,32 @@ color: "#4C4C26",
           }}
           dir="rtl"
 />
+{choice === "attending" && (
+  <>
+    <label
+      className="block font-arabic text-sm mb-2 mt-4 text-right"
+      style={{ color: "#A65B30" }}
+    >
+      الرقم الخاص بك
+    </label>
+
+    <input
+      type="tel"
+      value={phone}
+      onChange={(e) =>
+        setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
+      }
+      placeholder="05XXXXXXXX"
+      className="w-full px-4 py-3 rounded-xl font-arabic text-right outline-none"
+      style={{
+        background: "#F7F2EB",
+        border: "1.5px solid #A86A46",
+        color: "#4C4C26",
+      }}
+      dir="rtl"
+    />
+  </>
+)}
 {false && (
   <>
     <label
@@ -350,8 +415,11 @@ color: "#4C4C26",
     تأكيد الحضور
   </button>
 
-  <button
-    onClick={() => setChoice("declined")}
+ <button
+  onClick={() => {
+    setChoice("declined");
+    setPhone("");
+  }}
             className="py-3 rounded-xl font-arabic text-sm transition-all flex items-center justify-center gap-2"
             style={{
               background:
@@ -374,7 +442,12 @@ border: "1.5px solid #A86A46",
 
         <button
           onClick={submit}
-          disabled={!name.trim() || !choice || state.kind === "loading"}
+disabled={
+  !name.trim() ||
+  !choice ||
+  state.kind === "loading" ||
+  (choice === "attending" && phone.length !== 10)
+}
           className="w-full mt-5 py-3 rounded-xl font-arabic text-base transition-all hover:scale-[1.02] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
           style={{
   background: "linear-gradient(135deg, #A65B30 0%, #4C4C26 100%)",
