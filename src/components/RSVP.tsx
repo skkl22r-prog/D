@@ -8,7 +8,7 @@ import { QRCodeCanvas } from "qrcode.react";
 
 type State =
   | { kind: "form" }
-| { kind: "choose_name"; phone: string; names: string[] };
+  | { kind: "choose_name"; phone: string; names: string[] }
   | { kind: "loading" }
   | { kind: "attending"; name: string }
   | { kind: "declined"; name: string }
