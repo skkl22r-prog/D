@@ -439,9 +439,14 @@ color: "#4C4C26",
     <input
       type="tel"
       value={phone}
-      onChange={(e) =>
-        setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
-      }
+      onChange={(e) => {
+  const value = e.target.value
+    .replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d).toString())
+    .replace(/\D/g, "")
+    .slice(0, 10);
+
+  setPhone(value);
+}}
       placeholder="05XXXXXXXX"
       className="w-full px-4 py-3 rounded-xl font-arabic text-right outline-none"
       style={{
