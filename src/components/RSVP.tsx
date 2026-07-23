@@ -8,6 +8,7 @@ import { QRCodeCanvas } from "qrcode.react";
 
 type State =
   | { kind: "form" }
+| { kind: "choose_name"; phone: string; names: string[] };
   | { kind: "loading" }
   | { kind: "attending"; name: string }
   | { kind: "declined"; name: string }
@@ -16,6 +17,7 @@ type State =
 const RSVP = () => {
 const [name, setName] = useState("");
 const [phone, setPhone] = useState("");
+const [selectedName, setSelectedName] = useState("");
 const [guestCount, setGuestCount] = useState("");
   const [choice, setChoice] = useState<"attending" | "declined" | null>(null);
   const [state, setState] = useState<State>({ kind: "form" });
@@ -58,37 +60,57 @@ let cleanPhone = "";
 if (choice === "attending") {
   cleanPhone = phone.trim().replace(/\s/g, "");
 
-  const { data, error: checkError } = await supabase
-    .from("rsvpsTif")
-    .select("*")
-    .eq("phone", cleanPhone)
-    .maybeSingle();
+  const { data: guests, error: checkError } = await supabase
+  .from("rsvpsTif")
+  .select("*")
+  .eq("phone", cleanPhone);
+
+if (guests.length > 1 && !selectedName) {
+  setState({
+    kind: "choose_name",
+    phone: phone,
+    names: guests.map(g => g.name),
+  });
+  return;
+}
+
+
 
   if (checkError) {
-    setState({
-      kind: "error",
-      msg: "حدث خطأ، حاول مرة أخرى",
-    });
-    return;
-  }
+  setState({
+    kind: "error",
+    msg: "حدث خطأ، حاول مرة أخرى.",
+  });
+  return;
+}
 
-  guest = data;
+if (!guests || guests.length === 0) {
+  setState({
+    kind: "error",
+    msg: "عذرًا، الرقم المدخل ليس من ضمن قائمة المدعوين.",
+  });
+  return;
+}
 
-  if (!guest) {
-    setState({
-      kind: "error",
-      msg: "عذرًا، الرقم المدخل ليس من ضمن قائمة المدعوين.",
-    });
-    return;
-  }
+guest = selectedName
+  ? guests.find((g) => g.name === selectedName)
+  : guests[0];
 
-  if (guest.qr_token) {
-    setState({
-      kind: "error",
-      msg: "تم تسجيل هذا الرقم مسبقًا، ولا يمكن استخراج باركود جديد.",
-    });
-    return;
-  }
+if (!guest) {
+  setState({
+    kind: "error",
+    msg: "تعذر العثور على الاسم.",
+  });
+  return;
+}
+
+if (guest.qr_token) {
+  setState({
+    kind: "error",
+    msg: "تم تسجيل هذا الاسم مسبقًا.",
+  });
+  return;
+}
 }
 
 
@@ -99,9 +121,8 @@ if (choice === "attending") {
   const result = await supabase
     .from("rsvpsTif")
     .update({
-      name: name.trim(),
       status: "attending",
-      qr_token: qr_token,
+      qr_token,
       scanned: false,
     })
     .eq("phone", cleanPhone);
@@ -234,6 +255,83 @@ await fetch(
       </Reveal>
     );
   }
+if (state.kind === "choose_name") {
+  return (
+    <Reveal>
+      <div
+        className="mx-auto max-w-md rounded-2xl p-8 backdrop-blur-md"
+        style={{
+          background: "#EEE7DC",
+          border: "1.5px solid #A86A46",
+          boxShadow: "var(--shadow-soft)",
+        }}
+      >
+        <h2
+          className="text-xl font-bold text-center mb-5"
+          style={{ color: "#4C4C26" }}
+        >
+          اختر اسمك
+        </h2>
+
+        <div className="space-y-3">
+          {state.names.map((guestName) => (
+            <button
+              key={guestName}
+              onClick={async () => {
+  setSelectedName(guestName);
+  setName(guestName);
+
+  const qr_token = crypto.randomUUID();
+
+  const { error } = await supabase
+    .from("rsvpsTif")
+    .update({
+      status: "attending",
+      qr_token,
+      scanned: false,
+    })
+    .eq("phone", state.phone)
+    .eq("name", guestName);
+
+  if (error) {
+    setState({
+      kind: "error",
+      msg: "حدث خطأ، حاول مرة أخرى",
+    });
+    return;
+  }
+
+  const qrUrl = `${window.location.origin}/scan/${qr_token}`;
+
+  localStorage.setItem(
+    "guest_qr",
+    JSON.stringify({
+      name: guestName,
+      qr: qrUrl,
+    })
+  );
+
+  setState({
+    kind: "qr",
+    name: guestName,
+    qr: qrUrl,
+  });
+}}
+              className="w-full py-3 rounded-xl font-arabic"
+              style={{
+                background: "#F7F2EB",
+                border: "1.5px solid #A86A46",
+                color: "#4C4C26",
+              }}
+            >
+              {guestName}
+            </button>
+          ))}
+        </div>
+      </div>
+    </Reveal>
+  );
+}
 if (state.kind === "qr") {
   return (
 <div className="flex justify-center px-6 pt-10">
