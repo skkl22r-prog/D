@@ -66,11 +66,25 @@ if (choice === "attending") {
   .eq("phone", cleanPhone);
 
 if (guests.length > 1 && !selectedName) {
+
+  const availableGuests = guests.filter(
+    (g) => !g.qr_token
+  );
+
+  if (availableGuests.length === 0) {
+    setState({
+      kind: "error",
+      msg: "تم استخدام هذا الرقم مسبقًا."
+    });
+    return;
+  }
+
   setState({
     kind: "choose_name",
     phone: phone,
-    names: guests.map(g => g.name),
+    names: availableGuests.map(g => g.name),
   });
+
   return;
 }
 
