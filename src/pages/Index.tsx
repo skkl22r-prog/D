@@ -265,7 +265,14 @@ style={{
 
         <Reveal delay={100}>
           <div className="text-center mb-6">
-            <MapPin className="mx-auto w-10 h-10 mb-3" style={{ color: "#BF8B02" }} />
+            <MapPin
+              className="mx-auto w-10 h-10 mb-3"
+              strokeWidth={1.8}
+              style={{
+                color: "#BF8B02",
+                filter: "drop-shadow(0 1px 1px rgba(255,255,255,0.65)) drop-shadow(0 2px 4px rgba(145,88,76,0.18))",
+              }}
+            />
 
             <div className="font-arabic text-2xl" style={{ color: "#91584C" }}>
               قاعة الجوهرة
@@ -326,7 +333,10 @@ style={{
         <div className="relative max-w-xl mx-auto">
           <div
             className="absolute top-6 bottom-6 right-6 w-px"
-            style={{ background: "#91584C" }}
+            style={{
+              background: "linear-gradient(180deg, #6F3937 0%, #91584C 22%, #D8A69A 45%, #91584C 62%, #C98A82 78%, #6F3937 100%)",
+              boxShadow: "0 0 4px rgba(145,88,76,0.18)",
+            }}
           />
 
           <div className="space-y-6">
@@ -343,14 +353,18 @@ style={{
                     <div
                       className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center z-10"
                       style={{
-                        background: "#DBC9B7",
-                        border: "2px solid #BF8B02",
-                        boxShadow: "0 0 10px rgba(191,139,2,0.18)",
+                        background: "linear-gradient(#DBC9B7, #DBC9B7) padding-box, linear-gradient(135deg, #6F3937 0%, #91584C 22%, #D8A69A 45%, #91584C 62%, #C98A82 78%, #6F3937 100%) border-box",
+                        border: "2px solid transparent",
+                        boxShadow: "inset 0 1px 2px rgba(255,255,255,0.65), inset 0 -2px 4px rgba(145,88,76,0.12), 0 2px 8px rgba(145,88,76,0.18)",
                       }}
                     >
-                      <span
-                        className="w-2 h-2 rounded-full"
-                        style={{ background: "#BF8B02" }}
+                      <d.icon
+                        className="w-7 h-7 shrink-0"
+                        strokeWidth={1.8}
+                        style={{
+                          color: "#91584C",
+                          filter: "drop-shadow(0 0.5px 0.5px rgba(255,255,255,0.65)) drop-shadow(0 1px 2px rgba(145,88,76,0.18))",
+                        }}
                       />
                     </div>
 
@@ -369,7 +383,14 @@ style={{
                         {d.text}
                       </span>
 
-                      <d.icon className="w-7 h-7 shrink-0" style={{ color: "#91584C" }} />
+                      <d.icon
+                        className="w-7 h-7 shrink-0"
+                        strokeWidth={1.8}
+                        style={{
+                          color: "#91584C",
+                          filter: "drop-shadow(0 0.5px 0.5px rgba(255,255,255,0.65)) drop-shadow(0 1px 2px rgba(145,88,76,0.18))",
+                        }}
+                      />
                     </div>
                   </div>
                 </Reveal>
