@@ -526,13 +526,12 @@ const Index = () => {
                 <div
                   className="relative mx-auto w-full max-w-2xl rounded-2xl overflow-hidden"
                   style={{
-                    aspectRatio: "840 / 1493",
-                    background:
-                      "linear-gradient(#DBC9B7, #DBC9B7) padding-box, linear-gradient(135deg, #6F3937 0%, #91584C 22%, #D8A69A 45%, #91584C 62%, #C98A82 78%, #6F3937 100%) border-box",
-                    border: "1.5px solid transparent",
-                    boxShadow:
-                      "inset 0 1px 2px rgba(255,255,255,0.65), inset 0 -2px 4px rgba(145,88,76,0.12), 0 2px 8px rgba(145,88,76,0.18)",
-                  }}
+  background:
+    "linear-gradient(#DBC9B7, #DBC9B7) padding-box, linear-gradient(135deg, #6F3937 0%, #91584C 22%, #D8A69A 45%, #91584C 62%, #C98A82 78%, #6F3937 100%) border-box",
+  border: "1.5px solid transparent",
+  boxShadow:
+    "inset 0 1px 2px rgba(255,255,255,0.65), inset 0 -2px 4px rgba(145,88,76,0.12), 0 2px 8px rgba(145,88,76,0.18)",
+}}
                 >
                   <img
                     src={galleryImages[currentImage]}
