@@ -186,30 +186,26 @@ style={{
                 >
                   {d.g === 19 && (
                     <Heart
-                      className="absolute w-6 h-6 z-0"
-                      style={{
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        color: "#BF8B02",
-                        fill: "#BF8B02",
-                        filter: "drop-shadow(0 1px 2px rgba(104,67,0,0.35))",
-                      }}
-                    />
+  className="absolute w-6 h-6 z-0"
+  style={{
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    color: "#BF8B02",
+    fill: "none",
+    strokeWidth: 2,
+    filter: "drop-shadow(0 1px 2px rgba(104,67,0,0.35))",
+  }}
+/>
                   )}
 
-                  <span
-                    className="text-xs leading-tight relative z-10"
-                    style={{
-                      backgroundImage: "linear-gradient(135deg, #6F3937 0%, #91584C 22%, #D8A69A 45%, #91584C 62%, #C98A82 78%, #6F3937 100%)",
-                      WebkitBackgroundClip: "text",
-                      backgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      filter: "drop-shadow(0 0.3px 0.3px rgba(145,88,76,0.18))",
-                    }}
-                  >
-                    {d.g}
-                  </span>
+                  <span className="text-xs leading-tight">{d.g}</span>
+<span
+  className="text-[8px] leading-tight mt-0.5"
+  style={{ color: "#91584C" }}
+>
+  {d.h}
+</span>
 
                   <span
                     className="text-[8px] leading-tight mt-0.5 relative z-10"
