@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   MapPin,
   Heart,
   QrCode,
   Baby,
-  UtensilsCrossed,
-  Clock,
   ChevronDown,
   Camera,
 } from "lucide-react";
@@ -32,21 +30,59 @@ const galleryImages = [
 
 const Index = () => {
   const [opened, setOpened] = useState(false);
-  const [hideIndicator, setHideIndicator] = useState(false);
-  const [showIndicator, setShowIndicator] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setHideIndicator(true);
+  const autoScrollStarted = useRef(false);
+  const autoScrolling = useRef(false);
+  const animationFrame = useRef<number | null>(null);
+  const lastFrameTime = useRef<number | null>(null);
+
+  const stopAutoScroll = () => {
+    autoScrolling.current = false;
+    lastFrameTime.current = null;
+
+    if (animationFrame.current !== null) {
+      cancelAnimationFrame(animationFrame.current);
+      animationFrame.current = null;
+    }
+  };
+
+  const startAutoScroll = () => {
+    if (autoScrollStarted.current) return;
+
+    autoScrollStarted.current = true;
+    autoScrolling.current = true;
+    lastFrameTime.current = null;
+
+    const scrollStep = (timestamp: number) => {
+      if (!autoScrolling.current) return;
+
+      if (lastFrameTime.current === null) {
+        lastFrameTime.current = timestamp;
+        animationFrame.current = requestAnimationFrame(scrollStep);
+        return;
       }
+
+      const elapsed = timestamp - lastFrameTime.current;
+      lastFrameTime.current = timestamp;
+
+      // نزول هادئ بسرعة 25 بكسل تقريبًا في الثانية
+      window.scrollBy(0, elapsed * 0.025);
+
+      const atBottom =
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 2;
+
+      if (atBottom) {
+        stopAutoScroll();
+        return;
+      }
+
+      animationFrame.current = requestAnimationFrame(scrollStep);
     };
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    animationFrame.current = requestAnimationFrame(scrollStep);
+  };
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -54,6 +90,44 @@ const Index = () => {
     }, 3500);
 
     return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (!opened) return;
+
+    const handleManualControl = () => {
+      if (autoScrolling.current) {
+        stopAutoScroll();
+      }
+    };
+
+    window.addEventListener("touchstart", handleManualControl, {
+      passive: true,
+    });
+    window.addEventListener("pointerdown", handleManualControl, {
+      passive: true,
+    });
+    window.addEventListener("wheel", handleManualControl, {
+      passive: true,
+    });
+    window.addEventListener("keydown", handleManualControl);
+
+    return () => {
+      window.removeEventListener("touchstart", handleManualControl);
+      window.removeEventListener("pointerdown", handleManualControl);
+      window.removeEventListener("wheel", handleManualControl);
+      window.removeEventListener("keydown", handleManualControl);
+
+      stopAutoScroll();
+    };
+  }, [opened]);
+
+  useEffect(() => {
+    return () => {
+      if (animationFrame.current !== null) {
+        cancelAnimationFrame(animationFrame.current);
+      }
+    };
   }, []);
 
   return (
@@ -76,30 +150,11 @@ const Index = () => {
 
       <SprayParticles />
       <MusicToggle active={opened} />
+
       {!opened && <Envelope onOpen={() => setOpened(true)} />}
 
       {opened && (
         <>
-          <div
-            className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-500 ${
-              showIndicator && !hideIndicator
-                ? "opacity-100"
-                : "opacity-0"
-            }`}
-          >
-            <p
-              className="font-arabic text-sm text-center mb-1"
-              style={{ color: "#91584C" }}
-            >
-              اسحب للأسفل
-            </p>
-
-            <ChevronDown
-              className="mx-auto w-6 h-6 animate-bounce"
-              style={{ color: "#91584C" }}
-            />
-          </div>
-
           <main className="relative z-10">
             <section
               className="relative z-20 overflow-hidden"
@@ -116,7 +171,7 @@ const Index = () => {
                 controls={false}
                 onTimeUpdate={(e) => {
                   if (e.currentTarget.currentTime >= 27) {
-                    setShowIndicator(true);
+                    startAutoScroll();
                   }
                 }}
                 className="absolute inset-0 w-full h-full object-cover"
@@ -469,8 +524,9 @@ const Index = () => {
 
               <Reveal delay={150}>
                 <div
-                  className="mx-auto w-full max-w-2xl rounded-2xl overflow-hidden"
+                  className="relative mx-auto w-full max-w-2xl rounded-2xl overflow-hidden"
                   style={{
+                    aspectRatio: "840 / 1493",
                     background:
                       "linear-gradient(#DBC9B7, #DBC9B7) padding-box, linear-gradient(135deg, #6F3937 0%, #91584C 22%, #D8A69A 45%, #91584C 62%, #C98A82 78%, #6F3937 100%) border-box",
                     border: "1.5px solid transparent",
@@ -478,34 +534,10 @@ const Index = () => {
                       "inset 0 1px 2px rgba(255,255,255,0.65), inset 0 -2px 4px rgba(145,88,76,0.12), 0 2px 8px rgba(145,88,76,0.18)",
                   }}
                 >
-                  <style>
-                    {`
-                      @keyframes weddingPhotoFade {
-                        0% {
-                          opacity: 0;
-                        }
-                        15% {
-                          opacity: 1;
-                        }
-                        85% {
-                          opacity: 1;
-                        }
-                        100% {
-                          opacity: 0;
-                        }
-                      }
-
-                      .wedding-photo-animation {
-                        animation: weddingPhotoFade 3.5s ease-in-out;
-                      }
-                    `}
-                  </style>
-
                   <img
-                    key={galleryImages[currentImage]}
                     src={galleryImages[currentImage]}
                     alt="صورة من ذكرياتنا"
-                    className="wedding-photo-animation block w-full h-auto"
+                    className="absolute inset-0 block w-full h-full"
                     style={{
                       objectFit: "contain",
                     }}
