@@ -35,20 +35,40 @@ const MusicToggle = ({ active }: Props) => {
   return (
     <>
       <audio ref={audioRef} src={musicSrc} preload="auto" />
+
       <button
         onClick={toggle}
         aria-label={playing ? "إيقاف الموسيقى" : "تشغيل الموسيقى"}
-        className="fixed bottom-4 left-4 z-50 w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all hover:scale-110"
+        className="fixed bottom-4 left-4 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110"
         style={{
-background: "rgba(238, 231, 220, 0.85)",
-border: "1.5px solid #A86A46",
-boxShadow: "var(--shadow-soft), 0 0 12px rgba(168, 106, 70, 0.18)",
+          background: "linear-gradient(145deg, #E8D9CA, #DBC9B7, #D4BBAA)",
+          border: "1.5px solid transparent",
+          backgroundImage:
+            "linear-gradient(145deg, #E8D9CA, #DBC9B7, #D4BBAA), linear-gradient(135deg, #D4A9A1, #BF8B02, #A77C86, #D4A9A1)",
+          backgroundOrigin: "border-box",
+          backgroundClip: "padding-box, border-box",
+          boxShadow:
+            "0 0 8px rgba(167, 124, 134, 0.25), 0 0 16px rgba(191, 139, 2, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.35)",
         }}
       >
         {playing ? (
-          <Volume2 className="w-5 h-5" style={{ color: "#4C4C26" }} />
+          <Volume2
+            className="w-5 h-5"
+            strokeWidth={2.2}
+            style={{
+              color: "#A77C86",
+              filter: "drop-shadow(0 0 3px rgba(167, 124, 134, 0.35))",
+            }}
+          />
         ) : (
-          <VolumeX className="w-5 h-5" style={{ color: "#4C4C26" }} />
+          <VolumeX
+            className="w-5 h-5"
+            strokeWidth={2.2}
+            style={{
+              color: "#A77C86",
+              filter: "drop-shadow(0 0 3px rgba(167, 124, 134, 0.35))",
+            }}
+          />
         )}
       </button>
     </>
