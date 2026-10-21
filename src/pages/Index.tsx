@@ -1,4 +1,4 @@
- import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MapPin, Heart, QrCode, Baby, UtensilsCrossed, Clock, ChevronDown } from "lucide-react";
 import soso from "@/assets/soso.mp4";
 import Envelope from "@/components/Envelope";
@@ -27,14 +27,10 @@ useEffect(() => {
   return () => window.removeEventListener("scroll", handleScroll);
 }, []);
 
-
-
-
-
   return (
 <div
 style={{
-  background: "#EEE7DC",
+  background: "#E9D8C5",
   minHeight: "100vh",
 }}
 >
@@ -63,14 +59,14 @@ style={{
 >
       <p
         className="font-arabic text-sm text-center mb-1"
-        style={{ color: "#4C4C26" }}
+        style={{ color: "#684637" }}
       >
         اسحب للأسفل
       </p>
 
       <ChevronDown
         className="mx-auto w-6 h-6 animate-bounce"
-        style={{ color: "#A65B30" }}
+        style={{ color: "#927A68" }}
       />
     </div>
 
@@ -100,80 +96,118 @@ onTimeUpdate={(e) => {
     />
   </section>
 
-          {/* Calendar block — date 7/7/2026 with heart strikethrough */}
+          {/* Calendar block — Gregorian and Hijri dates */}
           <section className="px-4 py-16">
   <Reveal>
     <div
       className="mx-auto max-w-sm rounded-2xl p-6 text-center backdrop-blur-md"
       style={{
-  background: "#EEE7DC",
-  border: "1.5px solid #A86A46",
-  boxShadow: "var(--shadow-soft)",
-  color: "#C8C3BD",
-}}
+        background: "#E9D8C5",
+        border: "1.5px solid #C6A985",
+        boxShadow: "var(--shadow-soft)",
+        color: "#927A68",
+      }}
     >
       <div
         className="flex justify-between items-center font-display text-sm mb-3 px-2 py-2 rounded-lg"
         dir="ltr"
         style={{
-  background: "linear-gradient(135deg, #C98A62 0%, #8A8A5A 100%)",
-  color: "#F8F5EF",
-  fontWeight: 600,
-}}
+          background: "#C6A985",
+          color: "#684637",
+          fontWeight: 600,
+        }}
       >
-        <span>Tuesday</span>
-        <span>July</span>
+        <span>Saturday</span>
+        <span>December</span>
         <span>2026</span>
       </div>
 
-<div
-  className="grid grid-cols-7 gap-1 text-xs font-display"
-  dir="ltr"
-  style={{ color: "#4C4C26" }}
->
+      <div
+        className="grid grid-cols-7 gap-1 text-xs font-display"
+        dir="ltr"
+        style={{ color: "#684637" }}
+      >
         {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
           <div key={i} className="py-1">{d}</div>
         ))}
       </div>
 
-<div
-  className="grid grid-cols-7 gap-1 text-xs font-display"
-  dir="ltr"
-  style={{ color: "#6A6A43" }}
->
-        {[null, null, null, 1, 2, 3, 4,
-          5, 6, 7, 8, 9, 10, 11,
-          12, 13, 14, 15, 16, 17, 18,
-          19, 20, 21, 22, 23, 24, 25,
-          26, 27, 28, 29, 30, 31, null].map((d, i) => (
+      <div
+        className="grid grid-cols-7 gap-1 text-xs font-display"
+        dir="ltr"
+        style={{ color: "#927A68" }}
+      >
+        {[
+          { g: 1, h: "22" },
+          { g: 2, h: "23" },
+          { g: 3, h: "24" },
+          { g: 4, h: "25" },
+          { g: 5, h: "26" },
+          { g: 6, h: "27" },
+          { g: 7, h: "28" },
+          { g: 8, h: "29" },
+          { g: 9, h: "30" },
+          { g: 10, h: "1" },
+          { g: 11, h: "2" },
+          { g: 12, h: "3" },
+          { g: 13, h: "4" },
+          { g: 14, h: "5" },
+          { g: 15, h: "6" },
+          { g: 16, h: "7" },
+          { g: 17, h: "8" },
+          { g: 18, h: "9" },
+          { g: 19, h: "10" },
+          { g: 20, h: "11" },
+          { g: 21, h: "12" },
+          { g: 22, h: "13" },
+          { g: 23, h: "14" },
+          { g: 24, h: "15" },
+          { g: 25, h: "16" },
+          { g: 26, h: "17" },
+          { g: 27, h: "18" },
+          { g: 28, h: "19" },
+          { g: 29, h: "20" },
+          { g: 30, h: "21" },
+          { g: 31, h: "22" },
+        ].map((d) => (
           <div
-            key={i}
-            className={`aspect-square flex items-center justify-center rounded ${
-              d === 31 ? "heart-strike relative font-bold" : ""
+            key={d.g}
+            className={`aspect-square flex flex-col items-center justify-center rounded ${
+              d.g === 19 ? "heart-strike relative font-bold" : ""
             }`}
-            style={
-              d === 31
-                ? {
-color: "#4C4C26",
-                    fontSize: "0.95rem",
-                    fontWeight: 700,
-                  }
-                : {}
-            }
+            style={{
+              color: d.g === 19 ? "#684637" : "#927A68",
+              fontWeight: d.g === 19 ? 700 : 400,
+            }}
           >
-            {d ?? ""}
+            <span className="text-xs leading-tight">{d.g}</span>
+            <span
+              className="text-[8px] leading-tight mt-0.5"
+              style={{ color: "#927A68" }}
+            >
+              {d.h}
+            </span>
           </div>
         ))}
       </div>
 
-<div
-  className="font-arabic text-base mt-4"
-  style={{
-    fontWeight: 600,
-    color: "#A65B30",
-  }}
->
-        الجمعة 31 يوليو 2026
+      <div
+        className="font-arabic text-base mt-4"
+        style={{
+          fontWeight: 600,
+          color: "#684637",
+        }}
+      >
+        السبت 19 ديسمبر 2026
+      </div>
+
+      <div
+        className="font-arabic text-sm mt-1"
+        style={{
+          color: "#927A68",
+        }}
+      >
+        10 رجب 1448 هـ
       </div>
     </div>
   </Reveal>
@@ -182,7 +216,7 @@ color: "#4C4C26",
           {/* Countdown */}
         <section className="px-4 py-16">
   <Reveal>
-    <h2 className="text-center font-arabic text-3xl mb-10" style={{ color: "#A65B30" }}>
+    <h2 className="text-center font-arabic text-3xl mb-10" style={{ color: "#684637" }}>
       العدّ التنازلي
     </h2>
   </Reveal>
@@ -194,21 +228,21 @@ color: "#4C4C26",
 
 <section className="px-4 py-16">
   <Reveal>
-    <h2 className="text-center font-arabic text-3xl mb-8" style={{ color: "#A65B30" }}>
+    <h2 className="text-center font-arabic text-3xl mb-8" style={{ color: "#684637" }}>
       موقع حفلنا
     </h2>
   </Reveal>
 
   <Reveal delay={100}>
     <div className="text-center mb-6">
-      <MapPin className="mx-auto w-10 h-10 mb-3" style={{ color: "#4C4C26" }} />
+      <MapPin className="mx-auto w-10 h-10 mb-3" style={{ color: "#C6A985" }} />
 
-      <div className="font-arabic text-2xl" style={{ color: "#A65B30" }}>
-منتجع أوليفا
+      <div className="font-arabic text-2xl" style={{ color: "#684637" }}>
+        قاعة الجوهرة
       </div>
 
-      <div className="font-arabic text-lg mt-1" style={{ color: "#4C4C26" }}>
-        عنيزة
+      <div className="font-arabic text-lg mt-1" style={{ color: "#927A68" }}>
+        الحمدانية
       </div>
     </div>
   </Reveal>
@@ -218,12 +252,12 @@ color: "#4C4C26",
       className="max-w-2xl mx-auto rounded-2xl overflow-hidden"
       style={{
         boxShadow: "var(--shadow-soft)",
-border: "1.5px solid #A86A46",
+        border: "1.5px solid #C6A985",
       }}
     >
       <iframe
-        title="موقع الحفل - قاعة المردون"
-src="https://www.google.com/maps?q=منتجع+أوليفا+عنيزة&output=embed"
+        title="موقع الحفل - قاعة الجوهرة"
+        src="https://www.google.com/maps?q=قاعة+الجوهرة+الحمدانية&output=embed"
         width="100%"
         height="320"
         loading="lazy"
@@ -233,14 +267,12 @@ src="https://www.google.com/maps?q=منتجع+أوليفا+عنيزة&output=emb
   </Reveal>
 </section>
 
-
-
           {/* Program timeline */}
 <section className="px-4 py-16">
   <Reveal>
     <h2
       className="text-center font-arabic text-3xl mb-10"
-      style={{ color: "#A65B30" }}
+      style={{ color: "#684637" }}
     >
       برنامج الحفل
     </h2>
@@ -248,82 +280,85 @@ src="https://www.google.com/maps?q=منتجع+أوليفا+عنيزة&output=emb
 
   <Timeline />
 </section>
+
 {/* Details */}
-          <section className="px-4 py-16">
+<section className="px-4 py-16">
   <Reveal>
     <h2
       className="text-center font-arabic text-3xl mb-10"
-style={{ color: "#A65B30" }}
+      style={{ color: "#684637" }}
     >
       تفاصيل الحفل
     </h2>
   </Reveal>
 
   <div className="relative max-w-xl mx-auto">
+    <div
+      className="absolute top-6 bottom-6 right-6 w-px"
+      style={{ background: "#C6A985" }}
+    />
+    <div className="space-y-6">
+      {[
+        false && { icon: Clock, text: "الاستقبــــال : 7:30 م" },
+        false && { icon: UtensilsCrossed, text: "العشـــــاء 11:30 م" },
+        { icon: Baby, text: "منعاً للأحراج يمنع اصطحاب الاطفال والعاملات منعاً باتاً" },
+        { icon: QrCode, text: "يرجى إبراز الباركود عند الدخول" },
+      ]
+        .filter(Boolean)
+        .map((d, i) => (
+          <Reveal key={i} delay={i * 120}>
+            <div className="relative pr-16">
               <div
-                className="absolute top-6 bottom-6 right-6 w-px"
-style={{ background: "#A86A46" }}
-              />
-              <div className="space-y-6">
-               {[
-  false && { icon: Clock, text: "الاستقبــــال : 7:30 م" },
-  false && { icon: UtensilsCrossed, text: "العشـــــاء 11:30 م" },
-  { icon: Baby, text: "منعاً للأحراج يمنع اصطحاب الاطفال والعاملات منعاً باتاً" },
-  { icon: QrCode, text: "يرجى إبراز الباركود عند الدخول" },
-]
-.filter(Boolean)
-.map((d, i) => (
-                  <Reveal key={i} delay={i * 120}>
-                    <div className="relative pr-16">
-                      <div
-                        className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center z-10"
-                        style={{
-                          background: "#EEE7DC",
-border: "2px solid #A86A46",
-boxShadow: "0 0 10px rgba(168,106,70,0.18)",
-                        }}
-                      >
-                        <span
-                          className="w-2 h-2 rounded-full"
-style={{ background: "#4C4C26" }}
-                        />
-                      </div>
-                      <div
-                        className="rounded-xl px-6 py-5 backdrop-blur-md flex items-center justify-between gap-4"
-                        style={{
-background: "#EEE7DC",
-border: "1.5px solid #A86A46",
-                          boxShadow: "var(--shadow-soft)",
-                        }}
-                      >
-                        <span className="font-arabic text-lg flex-1 text-right"
-style={{ color: "#4C4C26" }}>
-                          {d.text}
-                        </span>
-                        <d.icon className="w-7 h-7 shrink-0" style={{ color: "#A65B30" }} />
-                      </div>
-                    </div>
-                  </Reveal>
-                ))}
+                className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center z-10"
+                style={{
+                  background: "#E9D8C5",
+                  border: "2px solid #C6A985",
+                  boxShadow: "0 0 10px rgba(198,169,133,0.18)",
+                }}
+              >
+                <span
+                  className="w-2 h-2 rounded-full"
+                  style={{ background: "#927A68" }}
+                />
+              </div>
+              <div
+                className="rounded-xl px-6 py-5 backdrop-blur-md flex items-center justify-between gap-4"
+                style={{
+                  background: "#E9D8C5",
+                  border: "1.5px solid #C6A985",
+                  boxShadow: "var(--shadow-soft)",
+                }}
+              >
+                <span
+                  className="font-arabic text-lg flex-1 text-right"
+                  style={{ color: "#927A68" }}
+                >
+                  {d.text}
+                </span>
+                <d.icon className="w-7 h-7 shrink-0" style={{ color: "#684637" }} />
               </div>
             </div>
-          </section>
+          </Reveal>
+        ))}
+    </div>
+  </div>
+</section>
 
           {/* RSVP */}
           <section className="px-4 py-16">
             <Reveal>
-<h2
-  className="text-center font-arabic text-3xl mb-2"
-style={{ color: "#A65B30" }}
->
-  أكّد حضورك
-</h2>
+              <h2
+                className="text-center font-arabic text-3xl mb-2"
+                style={{ color: "#684637" }}
+              >
+                أكّد حضورك
+              </h2>
               <p
-  className="text-center font-arabic text-sm mb-10"
-style={{ color: "#4C4C26" }}
->
-  نتشرف بحضوركم — سيتم إصدار باركود خاص لكل ضيف
-</p>
+                className="text-center font-arabic text-sm mb-10"
+                style={{ color: "#927A68" }}
+              >
+                نتشرف بحضوركم — سيتم إصدار باركود خاص لكل ضيف
+              </p>
             </Reveal>
             <RSVP />
           </section>
@@ -331,10 +366,10 @@ style={{ color: "#4C4C26" }}
           {/* Footer */}
           <footer className="px-4 py-12 text-center">
             <Reveal>
-<div
-  className="flex items-center justify-center gap-2"
-style={{ color: "#A65B30" }}
->
+              <div
+                className="flex items-center justify-center gap-2"
+                style={{ color: "#684637" }}
+              >
                 <Heart className="w-4 h-4 fill-current" />
                 <span className="font-arabic text-sm">
                   صُنع بحب بواسطة{" "}
@@ -343,14 +378,14 @@ style={{ color: "#A65B30" }}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline underline-offset-4 transition-colors"
-style={{ color: "#4C4C26" }}
+                    style={{ color: "#927A68" }}
                   >
                     متجر غيمة
                   </a>
                 </span>
               </div>
             </Reveal>
-         </footer>
+          </footer>
 </main>
 </>
 )}
