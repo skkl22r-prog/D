@@ -15,6 +15,7 @@ const Countdown = () => {
         s: Math.floor((diff / 1000) % 60),
       });
     };
+
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
@@ -45,16 +46,18 @@ const Countdown = () => {
           }}
         >
           <div
-            className="font-display text-3xl sm:text-4xl font-light tabular-nums"
+            className="font-display text-4xl sm:text-5xl font-semibold tabular-nums"
             style={{
               background:
-                "linear-gradient(135deg, #8C6428 0%, #C89D4B 20%, #F2D891 38%, #B78A36 55%, #E8CB7A 72%, #9B702B 100%)",
+                "linear-gradient(180deg, #E8CB7A 0%, #C89D4B 35%, #A8792E 70%, #D9B45F 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              filter:
-                "drop-shadow(0 0.5px 0.5px rgba(255,255,255,0.75)) drop-shadow(0 1px 2px rgba(183,138,54,0.25))",
+              WebkitTextStroke: "0.35px rgba(140, 94, 28, 0.65)",
+              filter: "drop-shadow(0 1px 0 rgba(255,255,255,0.45))",
               fontVariantNumeric: "tabular-nums",
+              letterSpacing: "0.03em",
+              lineHeight: 1.2,
             }}
           >
             {String(it.v).padStart(2, "0")}
