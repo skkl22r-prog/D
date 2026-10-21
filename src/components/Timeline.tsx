@@ -1,8 +1,9 @@
 import Reveal from "./Reveal";
 
 const events = [
-  { time: "7:30 PM", label: "الاستقبال" },
-  { time: "11:30 PM", label: "العشاء" },
+  { time: "9:00 PM", label: "الاستقبال" },
+    { time: "12:00 AM", label: "الزفة" },
+  { time: "1:30 AM", label: "العشاء" },
 ];
 
 const Timeline = () => {
