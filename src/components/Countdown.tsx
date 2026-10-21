@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const TARGET = new Date("2026-07-31T19:30:00+03:00").getTime();
+const TARGET = new Date("2026-12-19T19:30:00+03:00").getTime();
 
 const Countdown = () => {
   const [t, setT] = useState({ d: 0, h: 0, m: 0, s: 0 });
@@ -32,23 +32,28 @@ const Countdown = () => {
       {items.map((it) => (
         <div
           key={it.l}
-          className="flex flex-col items-center justify-center rounded-xl px-4 sm:px-6 py-4 min-w-[70px] sm:min-w-[90px] backdrop-blur-md"
+          className="flex flex-col items-center justify-center rounded-xl px-4 sm:px-6 py-4 min-w-[70px] sm:min-w-[90px] transition-colors"
           style={{
-background: "#EEE7DC",
-border: "1px solid #A86A46",
-            boxShadow: "var(--shadow-soft)",
+            background: "#DBC9B7",
+            border: "1px solid #91584C",
+            boxShadow: "0 4px 14px rgba(111, 57, 55, 0.10)",
           }}
         >
           <div
-  className="font-display text-3xl sm:text-4xl font-light tabular-nums"
-style={{ color: "#4C4C26" }}
->
+            className="font-display text-3xl sm:text-4xl font-light tabular-nums"
+            style={{
+              color: "#6F3937",
+              fontVariantNumeric: "tabular-nums",
+            }}
+          >
             {String(it.v).padStart(2, "0")}
           </div>
 
           <div
             className="text-xs uppercase tracking-widest mt-1"
-style={{ color: "#A65B30" }}
+            style={{
+              color: "#91584C",
+            }}
           >
             {it.l}
           </div>
