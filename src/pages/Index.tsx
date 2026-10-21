@@ -66,7 +66,7 @@ style={{
 
       <ChevronDown
         className="mx-auto w-6 h-6 animate-bounce"
-        style={{ color: "#BF8B02" }}
+        style={{ color: "#91584C" }}
       />
     </div>
 
@@ -103,7 +103,7 @@ onTimeUpdate={(e) => {
       className="mx-auto max-w-sm rounded-2xl p-6 text-center backdrop-blur-md"
       style={{
         background: "#DBC9B7",
-        border: "1.5px solid #BF8B02",
+        border: "1.5px solid #C89D9A",
         boxShadow: "var(--shadow-soft)",
         color: "#91584C",
       }}
@@ -112,8 +112,8 @@ onTimeUpdate={(e) => {
         className="flex justify-between items-center font-display text-sm mb-3 px-2 py-2 rounded-lg"
         dir="ltr"
         style={{
-          background: "#BF8B02",
-          color: "#DBC9B7",
+          background: "#C89D9A",
+          color: "#91584C",
           fontWeight: 600,
         }}
       >
@@ -176,7 +176,7 @@ onTimeUpdate={(e) => {
               d.g === 19 ? "heart-strike relative font-bold" : ""
             }`}
             style={{
-              color: d.g === 19 ? "#91584C" : "#91584C",
+              color: "#91584C",
               fontWeight: d.g === 19 ? 700 : 400,
             }}
           >
@@ -252,7 +252,7 @@ onTimeUpdate={(e) => {
       className="max-w-2xl mx-auto rounded-2xl overflow-hidden"
       style={{
         boxShadow: "var(--shadow-soft)",
-        border: "1.5px solid #BF8B02",
+        border: "1.5px solid #C89D9A",
       }}
     >
       <iframe
@@ -325,7 +325,7 @@ onTimeUpdate={(e) => {
                 className="rounded-xl px-6 py-5 backdrop-blur-md flex items-center justify-between gap-4"
                 style={{
                   background: "#DBC9B7",
-                  border: "1.5px solid #BF8B02",
+                  border: "1.5px solid #C89D9A",
                   boxShadow: "var(--shadow-soft)",
                 }}
               >
@@ -370,7 +370,7 @@ onTimeUpdate={(e) => {
                 className="flex items-center justify-center gap-2"
                 style={{ color: "#91584C" }}
               >
-                <Heart className="w-4 h-4 fill-current" />
+                <Heart className="w-4 h-4 fill-current" style={{ color: "#BF8B02" }} />
                 <span className="font-arabic text-sm">
                   صُنع بحب بواسطة{" "}
                   <a
