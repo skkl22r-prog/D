@@ -13,8 +13,8 @@ const Timeline = () => {
         className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px"
         style={{
           background:
-            "linear-gradient(180deg, #6F3937 0%, #91584C 22%, #D8A69A 45%, #91584C 62%, #C98A82 78%, #6F3937 100%)",
-          boxShadow: "0 0 4px rgba(145,88,76,0.18)",
+            "linear-gradient(180deg, #8F6500 0%, #BF8B02 22%, #F5D778 45%, #BF8B02 62%, #E8C45B 78%, #9C7000 100%)",
+          boxShadow: "0 0 4px rgba(191,139,2,0.22)",
         }}
       />
 
@@ -26,10 +26,10 @@ const Timeline = () => {
                 className="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full z-10"
                 style={{
                   background:
-                    "linear-gradient(#DBC9B7, #DBC9B7) padding-box, linear-gradient(135deg, #6F3937 0%, #91584C 22%, #D8A69A 45%, #91584C 62%, #C98A82 78%, #6F3937 100%) border-box",
+                    "linear-gradient(#DBC9B7, #DBC9B7) padding-box, linear-gradient(135deg, #8F6500 0%, #BF8B02 22%, #F5D778 45%, #BF8B02 62%, #E8C45B 78%, #9C7000 100%) border-box",
                   border: "2px solid transparent",
                   boxShadow:
-                    "inset 0 1px 2px rgba(255,255,255,0.65), inset 0 -2px 4px rgba(145,88,76,0.12), 0 0 0 5px rgba(219,201,183,0.35), 0 2px 8px rgba(145,88,76,0.18)",
+                    "inset 0 1px 2px rgba(255,255,255,0.65), inset 0 -2px 4px rgba(104,67,0,0.22), 0 0 0 5px rgba(219,201,183,0.35), 0 2px 8px rgba(191,139,2,0.22)",
                 }}
               />
 
@@ -39,7 +39,7 @@ const Timeline = () => {
                   dir="ltr"
                   style={{
                     textAlign: "right",
-                    color: "#4C4C26",
+                    color: "#91584C",
                   }}
                 >
                   {e.time}
