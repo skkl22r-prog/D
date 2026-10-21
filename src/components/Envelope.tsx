@@ -1,5 +1,5 @@
 import { useState } from "react";
-import invitationImg from "@/assets/IMG_4902.jpeg";
+import invitationImg from "@/assets/IMG_8578.jpeg";
 import waxSeal from "@/assets/Photoroom_20261021_130014.png";
 
 interface EnvelopeProps {
@@ -18,12 +18,16 @@ const Envelope = ({ onOpen }: EnvelopeProps) => {
   return (
     <div
       className="fixed inset-0 z-40 cursor-pointer overflow-hidden"
-style={{ background: "#D8CBBB", perspective: "2000px" }}
+      style={{ background: "#D8CBBB", perspective: "2000px" }}
       onClick={trigger}
     >
       {/* Revealed invitation underneath */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <img src={invitationImg} alt="" className="max-h-[90vh] w-auto opacity-60" />
+        <img
+          src={invitationImg}
+          alt=""
+          className="max-h-[90vh] w-auto opacity-60"
+        />
       </div>
 
       {/* Two envelope halves */}
@@ -31,7 +35,8 @@ style={{ background: "#D8CBBB", perspective: "2000px" }}
         <div
           className="absolute top-0 right-0 h-full w-1/2"
           style={{
-            transition: "transform 2s cubic-bezier(0.65, 0, 0.35, 1) 0.08s, box-shadow 2s ease-out 0.08s",
+            transition:
+              "transform 2s cubic-bezier(0.65, 0, 0.35, 1) 0.08s, box-shadow 2s ease-out 0.08s",
             transform: opening ? "translateX(110%)" : "translateX(0)",
             boxShadow: opening
               ? "-30px 0 60px hsla(0,0%,0%,0.55), inset 8px 0 14px hsla(0,0%,0%,0.35)"
@@ -47,14 +52,21 @@ style={{ background: "#D8CBBB", perspective: "2000px" }}
               filter: "blur(18px) brightness(0.85)",
             }}
           >
-            <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, hsla(30,25%,35%,0.35), hsla(30,25%,35%,0.15))" }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(90deg, hsla(30,25%,35%,0.35), hsla(30,25%,35%,0.15))",
+              }}
+            />
           </div>
         </div>
 
         <div
           className="absolute top-0 left-0 h-full w-1/2"
           style={{
-            transition: "transform 2s cubic-bezier(0.65, 0, 0.35, 1), box-shadow 2s ease-out",
+            transition:
+              "transform 2s cubic-bezier(0.65, 0, 0.35, 1), box-shadow 2s ease-out",
             transform: opening ? "translateX(-110%)" : "translateX(0)",
             boxShadow: opening
               ? "30px 0 60px hsla(0,0%,0%,0.55), inset -8px 0 14px hsla(0,0%,0%,0.35)"
@@ -70,7 +82,13 @@ style={{ background: "#D8CBBB", perspective: "2000px" }}
               filter: "blur(18px) brightness(0.85)",
             }}
           >
-            <div className="absolute inset-0" style={{ background: "linear-gradient(-90deg, hsla(30,25%,35%,0.35), hsla(30,25%,35%,0.15))" }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(-90deg, hsla(30,25%,35%,0.35), hsla(30,25%,35%,0.15))",
+              }}
+            />
           </div>
         </div>
 
@@ -78,13 +96,13 @@ style={{ background: "#D8CBBB", perspective: "2000px" }}
         <div
           className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px pointer-events-none"
           style={{
-background: "hsla(25, 45%, 55%, 0.45)",
+            background: "rgba(191, 139, 2, 0.45)",
             opacity: opening ? 0 : 1,
             transition: "opacity 0.6s ease-out",
           }}
         />
 
-        {/* Wax seal image - dead center on the envelope fold */}
+        {/* Wax seal image */}
         <div
           className="absolute top-0 left-0 w-full h-full pointer-events-none flex items-center justify-center"
           style={{
@@ -98,8 +116,8 @@ background: "hsla(25, 45%, 55%, 0.45)",
               alt="ختم الدعوة"
               className="w-44 h-44 sm:w-52 sm:h-52 object-contain"
               style={{
-  filter: "none",
-}}
+                filter: "none",
+              }}
             />
           </div>
         </div>
@@ -107,7 +125,7 @@ background: "hsla(25, 45%, 55%, 0.45)",
 
       <div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-sm font-arabic animate-pulse z-10"
-style={{ color: "#4C4C26" }}
+        style={{ color: "#A77C86" }}
       >
         اضغط لفتح الدعوة
       </div>
