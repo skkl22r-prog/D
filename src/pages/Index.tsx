@@ -103,7 +103,7 @@ onTimeUpdate={(e) => {
       className="mx-auto max-w-sm rounded-2xl p-6 text-center backdrop-blur-md"
       style={{
         background: "#DBC9B7",
-        border: "1.5px solid #C89D9A",
+        border: "1.5px solid #91584C",
         boxShadow: "var(--shadow-soft)",
         color: "#91584C",
       }}
@@ -112,9 +112,12 @@ onTimeUpdate={(e) => {
         className="flex justify-between items-center font-display text-sm mb-3 px-2 py-2 rounded-lg"
         dir="ltr"
         style={{
-          background: "#C89D9A",
-          color: "#91584C",
+          background: "linear-gradient(135deg, #8F6500 0%, #BF8B02 22%, #F5D778 45%, #BF8B02 62%, #E8C45B 78%, #9C7000 100%)",
+          color: "#FFF9E8",
           fontWeight: 600,
+          border: "1px solid #D8B64C",
+          boxShadow: "inset 0 1px 2px rgba(255,255,255,0.65), inset 0 -2px 4px rgba(104,67,0,0.22), 0 2px 8px rgba(191,139,2,0.22)",
+          textShadow: "0 1px 2px rgba(75,48,0,0.35)",
         }}
       >
         <span>Saturday</span>
@@ -252,7 +255,7 @@ onTimeUpdate={(e) => {
       className="max-w-2xl mx-auto rounded-2xl overflow-hidden"
       style={{
         boxShadow: "var(--shadow-soft)",
-        border: "1.5px solid #C89D9A",
+        border: "1.5px solid #91584C",
       }}
     >
       <iframe
@@ -295,7 +298,7 @@ onTimeUpdate={(e) => {
   <div className="relative max-w-xl mx-auto">
     <div
       className="absolute top-6 bottom-6 right-6 w-px"
-      style={{ background: "#BF8B02" }}
+      style={{ background: "#91584C" }}
     />
     <div className="space-y-6">
       {[
@@ -325,7 +328,7 @@ onTimeUpdate={(e) => {
                 className="rounded-xl px-6 py-5 backdrop-blur-md flex items-center justify-between gap-4"
                 style={{
                   background: "#DBC9B7",
-                  border: "1.5px solid #C89D9A",
+                  border: "1.5px solid #91584C",
                   boxShadow: "var(--shadow-soft)",
                 }}
               >
