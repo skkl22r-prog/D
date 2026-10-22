@@ -17,8 +17,8 @@ import MusicToggle from "@/components/MusicToggle";
 import backgroundImg from "@/assets/IMG_4841.png";
 import image8574 from "@/assets/IMG_8574.jpeg";
 import image8577 from "@/assets/IMG_8577.jpeg";
-import image8575 from "@/assets/IMG_8575.jpeg";
-import image8576 from "@/assets/IMG_8576.jpeg";
+//import image8575 from "@/assets/IMG_8575.jpeg";
+//import image8576 from "@/assets/IMG_8576.jpeg";
 
 const galleryImages = [
   image8574,
