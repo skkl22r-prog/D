@@ -21,8 +21,6 @@ import image8577 from "@/assets/IMG_8577.jpeg";
 const galleryImages = [
   image8574,
   image8577,
-  image8575,
-  image8576,
 ];
 
 const Index = () => {
