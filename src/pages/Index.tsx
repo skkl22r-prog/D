@@ -6,7 +6,7 @@ import {
   Baby,
   Camera,
 } from "lucide-react";
-import soso from "@/assets/D.mp4";
+import soso from "@/assets/Dw.mp4";
 import Envelope from "@/components/Envelope";
 import SprayParticles from "@/components/SprayParticles";
 import Reveal from "@/components/Reveal";
