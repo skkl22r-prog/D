@@ -140,7 +140,7 @@ const sendToGoogleForm = async (
   formData.append(
     CHOICE_ENTRY,
     choice === "attending"
-      ? "تأكيد الحضور"
+      ? "تاكيد الحضور"
       : "الاعتذار عن الحضور"
   );
 
@@ -446,7 +446,7 @@ const RSVP = () => {
             className="font-arabic text-2xl font-bold"
             style={{ color: COLORS.pink }}
           >
-            تأكيد الحضور
+            تاكيد الحضور
           </h2>
 
           <p
@@ -496,7 +496,7 @@ const RSVP = () => {
             }
           >
             <Check className="w-4 h-4 shrink-0" />
-            تأكيد الحضور
+            تاكيد الحضور
           </button>
 
           <button
